@@ -7,6 +7,7 @@ import { checkResurrection } from "./resurrection-rules";
 
 export async function runResurrection(dossier: RepoDossier, autopsy: Autopsy, now = new Date()): Promise<Resurrection> {
   const plan = await generateJson({
+    label: "resurrection",
     system: RESURRECTION_SYSTEM_PROMPT,
     user: resurrectionUserMessage(dossierToPrompt(dossier), JSON.stringify(autopsy, null, 2), now.toISOString().slice(0, 10)),
     schema: resurrectionSchema,

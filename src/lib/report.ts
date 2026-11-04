@@ -1,4 +1,5 @@
 import "server-only";
+import { connection } from "next/server";
 import { cache } from "react";
 import { runAutopsy } from "./ai/autopsy";
 import { runResurrection } from "./ai/resurrection";
@@ -50,8 +51,13 @@ export async function getReport(ref: RepoRef, ip: string): Promise<Report> {
   return { dossier, autopsy };
 }
 
-/** Request-deduped, never-throwing variant for pages and metadata. */
+/**
+ * Request-deduped, never-throwing variant for pages and metadata.
+ * `connection()` keeps the cache clock reads, the GitHub fetch and the Claude call out of any prerender or
+ * prefetch pass (Partial Prefetching resolves `headers()`, so it is not enough on its own).
+ */
 export const loadReport = cache(async (owner: string, repo: string, ip: string): Promise<ReportResult> => {
+  await connection();
   try {
     return { ok: true, report: await getReport(parseRefParams(owner, repo), ip) };
   } catch (err) {
@@ -71,6 +77,7 @@ export async function getResurrection(ref: RepoRef, ip: string): Promise<{ repor
 }
 
 export const loadResurrection = cache(async (owner: string, repo: string, ip: string): Promise<ResurrectionResult> => {
+  await connection();
   try {
     return { ok: true, ...(await getResurrection(parseRefParams(owner, repo), ip)) };
   } catch (err) {

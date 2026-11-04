@@ -3,11 +3,14 @@ import type { z } from "zod";
 import { getAnthropic, toAiError } from "../anthropic";
 import { MODEL } from "../config";
 import { AppError } from "../errors";
+import { logUsage } from "../usage";
 import { extractJsonObject } from "./json";
 
 export const AI_BAD_OUTPUT_MESSAGE = "The coroner's handwriting came out illegible. Try again.";
 
 export interface GenerateJsonOptions<S extends z.ZodType> {
+  /** Short name for usage logs, e.g. "autopsy". */
+  label: string;
   system: string;
   user: string;
   schema: S;
@@ -67,6 +70,7 @@ export async function generateJson<S extends z.ZodType>(opts: GenerateJsonOption
   let user = opts.user;
   for (let attempt = 1; attempt <= 2; attempt++) {
     const res = await callModel(opts.system, user, opts.maxTokens, opts.effort);
+    logUsage(attempt === 1 ? opts.label : `${opts.label}#retry`, res.usage);
     const text = res.content.flatMap((b) => (b.type === "text" ? [b.text] : [])).join("");
     const result = evaluate(text, res.stop_reason, opts);
     if (result.ok) return result.data;

@@ -16,6 +16,7 @@ const reply = (text: string, stop_reason = "end_turn") => ({
 });
 
 const opts = {
+  label: "test",
   system: "s",
   user: "u",
   schema: z.object({ n: z.number().int() }),

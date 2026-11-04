@@ -28,6 +28,7 @@ export function finalizeAutopsy(
 
 export async function runAutopsy(dossier: RepoDossier, now = new Date()): Promise<Autopsy> {
   const raw = await generateJson({
+    label: "autopsy",
     system: AUTOPSY_SYSTEM_PROMPT,
     user: autopsyUserMessage(dossierToPrompt(dossier), now.toISOString().slice(0, 10)),
     schema: autopsyModelSchema,

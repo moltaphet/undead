@@ -4,6 +4,7 @@ import { getAnthropic, toAiError } from "../anthropic";
 import { MODEL } from "../config";
 import { SEANCE_OPENING } from "../prompts/seance";
 import type { SeanceMessage } from "../schemas";
+import { logUsage } from "../usage";
 
 export const FADING_LINE = "...the connection to the other side is fading. Try again.";
 export const REFUSAL_LINE = "Some things stay buried.";
@@ -52,6 +53,7 @@ export async function createSeanceStream(system: string, history: SeanceMessage[
         const next = await events.next();
         if (next.done) {
           const final = await stream.finalMessage().catch(() => null);
+          logUsage(`seance history=${history.length}`, final?.usage);
           if (final?.stop_reason === "refusal" && sentText) controller.enqueue(encoder.encode(` ${REFUSAL_LINE}`));
           signal.removeEventListener("abort", abort);
           controller.close();
