@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Undead
 
-## Getting Started
+> Your dead projects rise at midnight.
 
-First, run the development server:
+Paste the URL of an abandoned public GitHub repo. Undead performs an AI autopsy, issues a shareable death certificate, writes a seven-night resurrection plan with a crowdfunding pitch, and lets you talk to the project's ghost. Built for Vibeathon 02 ("Night shift") with Claude.
+
+## Setup
+
+Requires Node.js 22 or newer.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Fill in `.env.local` (server-side only, never commit it):
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Variable | Required | Notes |
+| --- | --- | --- |
+| `ANTHROPIC_API_KEY` | Yes | Powers the autopsy, resurrection and séance. |
+| `GITHUB_TOKEN` | Strongly recommended | Without it GitHub allows 60 requests an hour, about 8 repos. Use a fine-grained token with read-only access to public repositories. |
+| `NEXT_PUBLIC_SITE_URL` | In production | Public origin used in share links and social images, e.g. `https://undead.example.com`. |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev    # http://localhost:3000
+```
 
-## Learn More
+Checks: `npm run lint`, `npm run typecheck`, `npm test`, `npm run build`.
 
-To learn more about Next.js, take a look at the following resources:
+Dev-only tools (404 in production): `/dev/ingest` (inspect a dossier), `/dev/certificate?fixture=long&format=square` (certificate fixtures), `/dev/preview/autopsy|resurrect|seance` (layouts with fixture AI output).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy to Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push the repo to GitHub and import it in Vercel (framework: Next.js, defaults are fine).
+2. In Project Settings → Environment Variables, add `ANTHROPIC_API_KEY`, `GITHUB_TOKEN` and `NEXT_PUBLIC_SITE_URL` for Production (and Preview if you use it).
+3. Deploy. Then open `/r/atom/atom`, share it, and check the card with X's or a link-preview debugger.
 
-## Deploy on Vercel
+Caches and rate limits are in memory per server instance (see `CLAUDE.md`, "Known limits").
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Project conventions and progress: `CLAUDE.md`.

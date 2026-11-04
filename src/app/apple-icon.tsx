@@ -1,0 +1,19 @@
+import { ImageResponse } from "next/og";
+
+export const size = { width: 180, height: 180 };
+export const contentType = "image/png";
+
+export default function AppleIcon() {
+  return new ImageResponse(
+    (
+      <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", background: "#07080b" }}>
+        <svg width="120" height="120" viewBox="0 0 32 32">
+          <path d="M16 6c-4.4 0-7 3.4-7 7.6V25l2.6-2.2L14 25l2-2.2L18 25l2.4-2.2L23 25V13.6C23 9.4 20.4 6 16 6z" fill="#7cffb2" />
+          <circle cx="13.2" cy="14" r="1.5" fill="#07080b" />
+          <circle cx="18.8" cy="14" r="1.5" fill="#07080b" />
+        </svg>
+      </div>
+    ),
+    size,
+  );
+}

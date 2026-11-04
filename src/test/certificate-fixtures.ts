@@ -1,0 +1,43 @@
+import { clean, type CertificateData } from "@/lib/certificate/data";
+
+export const CERTIFICATE_FIXTURES: Record<string, CertificateData> = {
+  short: {
+    deceased: "bower/bower",
+    born: "6 Sept 2012",
+    died: "18 Mar 2018",
+    ageAtDeath: "5 years, 6 months",
+    cause: "Killed by npm, which it was installed with",
+    lastWords: "CI: add Node.js 18, 20 & 22 (#2630)",
+    survivedBy: "15k stars, 1.9k forks",
+    score: 18,
+    epitaph: "It managed your packages. Nobody managed it.",
+    domain: "undead.example.com",
+    status: "dead",
+  },
+  long: {
+    deceased: clean("an-extremely-long-organisation-name/an-even-longer-repository-name-that-goes-on-forever-and-ever", 60),
+    born: "29 Feb 2016",
+    died: "31 Dec 2023",
+    ageAtDeath: "7 years, 10 months",
+    cause: clean("Scope creep so severe it added a plugin system, a theming engine, a CLI, a GUI and a blockchain before shipping a single working export button for anyone", 110),
+    lastWords: clean("WIP: refactor the refactor of the plugin loader so that the theming engine can talk to the blockchain module (do not merge) 🚧🚧", 90),
+    survivedBy: "1.2M stars, 340k forks",
+    score: 100,
+    epitaph: clean("Here lies everything it promised, all at once, none of it finished.", 70),
+    domain: "undead.example.com",
+    status: "dead",
+  },
+  zero: {
+    deceased: "ab/c",
+    born: "1 Jan 2024",
+    died: "2 Jan 2024",
+    ageAtDeath: "Under a month",
+    cause: "Never left the first commit",
+    lastWords: null,
+    survivedBy: "0 stars, 0 forks",
+    score: 0,
+    epitaph: "Born and buried on the same weekend.",
+    domain: "localhost:3000",
+    status: "dead",
+  },
+};
