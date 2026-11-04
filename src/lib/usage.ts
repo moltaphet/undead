@@ -10,12 +10,12 @@ interface Prices {
 
 /**
  * List prices in USD per million tokens, for estimates only (check the provider's console for billed cost).
- * Gemini is the paid-tier price of gemini-2.5-flash; the free tier bills nothing. A different GEMINI_MODEL
- * is still priced as 2.5 Flash.
+ * Gemini is the third-party-reported paid-tier price of gemini-3.5-flash; the free tier bills nothing.
+ * A different GEMINI_MODEL is still priced as 3.5 Flash.
  */
 const PRICE_PER_MTOK: Record<ProviderName, Prices> = {
   anthropic: { input: 2, output: 10, cacheRead: 0.2, cacheWrite: 2.5 },
-  gemini: { input: 0.3, output: 2.5, cacheRead: 0.03, cacheWrite: 0 },
+  gemini: { input: 1.5, output: 9, cacheRead: 0.15, cacheWrite: 0 },
 };
 
 export interface TokenUsage {
@@ -37,12 +37,13 @@ export function estimateCostUsd(provider: ProviderName, usage: TokenUsage): numb
   );
 }
 
-/** One greppable line per model call: `[usage] autopsy gemini in=4510 out=2210 cache_read=0 cache_write=0 est=$0.0063`. */
-export function logUsage(label: string, provider: ProviderName, usage: TokenUsage | null | undefined): void {
+/** One greppable line per model call: `[usage] autopsy gemini in=4510 out=2210 cache_read=0 cache_write=0 est=$0.0268 model=gemini-3.5-flash`. */
+export function logUsage(label: string, provider: ProviderName, usage: TokenUsage | null | undefined, model?: string): void {
   if (!usage) return;
   console.info(
     `[usage] ${label} ${provider} in=${usage.input_tokens ?? 0} out=${usage.output_tokens ?? 0}` +
       ` cache_read=${usage.cache_read_input_tokens ?? 0} cache_write=${usage.cache_creation_input_tokens ?? 0}` +
-      ` est=$${estimateCostUsd(provider, usage).toFixed(4)}`,
+      ` est=$${estimateCostUsd(provider, usage).toFixed(4)}` +
+      (model ? ` model=${model}` : ""),
   );
 }

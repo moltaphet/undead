@@ -5,6 +5,7 @@ import { fetchRepoData, type RawRepoData, type Section } from "./github";
 import { cleanReadme, truncateOnParagraph } from "./readme";
 import { repoKey, type RepoRef } from "./repo-url";
 import type { RepoDossier } from "./schemas";
+import { singleton } from "./singleton";
 import { commitCadence, daysBetween, hasTests, repoStatus } from "./signals";
 
 const { readmeMaxChars, commitSubjectMaxChars, treeMaxEntries, packageNamesMax, languagesTop, packageJsonMaxBytes } =
@@ -217,7 +218,7 @@ export function dossierToPrompt(d: RepoDossier): string {
   return lines.join("\n");
 }
 
-const cache = new TtlCache<RepoDossier>(LIMITS.dossier.cacheTtlMs, LIMITS.dossier.cacheMax);
+const cache = singleton("dossierCache", () => new TtlCache<RepoDossier>(LIMITS.dossier.cacheTtlMs, LIMITS.dossier.cacheMax));
 
 /** Cached (30 min, per instance) dossier fetch. Partial dossiers are returned but not cached. */
 export function getDossier(ref: RepoRef): Promise<RepoDossier> {

@@ -16,7 +16,9 @@ Narrow and polished beats broad and buggy. Judges click the example repos first:
   uncached data / `headers()` / `params` must sit under Suspense (`loading.tsx` provides it). `fetch` `next.revalidate` is the old model; don't use it.
 - Tailwind 4.3.4, CSS-first: tokens in `@theme` in `src/app/globals.css`. No tailwind.config, no PostCSS config.
 - Models go through `src/lib/llm/` (`getProvider()`): Gemini via `@google/genai` (default; model `GEMINI_MODEL`, default
-  `gemini-2.5-flash`) or Claude via `@anthropic-ai/sdk` 1.4 (`LLM_PROVIDER=anthropic`; model id in `MODEL`, `src/lib/config.ts`).
+  `gemini-3.5-flash`) or Claude via `@anthropic-ai/sdk` 1.4 (`LLM_PROVIDER=anthropic`; model id in `MODEL`, `src/lib/config.ts`).
+  `GEMINI_FALLBACK_MODEL` (default `gemini-3-flash-preview`) takes over on 429/5xx/timeout, with a 60 s cooldown on the main model.
+  Caches and limiters in `report.ts`/`dossier.ts` use `singleton()` because pages and route handlers are separate bundles.
   Parameters specific to one provider stay inside that provider's file; `generate.ts` and `seance/stream.ts` are provider-neutral.
 - zod 4, server-only, vitest 5. Ask before adding any other dependency. Deploy: Vercel. No database.
 

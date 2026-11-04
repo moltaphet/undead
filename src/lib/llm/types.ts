@@ -16,6 +16,8 @@ export interface JsonResponse {
   text: string;
   stopReason: StopReason;
   usage?: TokenUsage | null;
+  /** The model that actually answered (it can differ from the configured one after a fallback). */
+  model?: string;
 }
 
 export interface ChatMessage {
@@ -32,7 +34,7 @@ export interface ChatRequest {
 /** A started streaming reply. `finish()` resolves once the stream has ended. */
 export interface ChatStream {
   chunks: AsyncIterable<string>;
-  finish(): Promise<{ refused: boolean; usage?: TokenUsage | null }>;
+  finish(): Promise<{ refused: boolean; usage?: TokenUsage | null; model?: string }>;
   abort(): void;
 }
 

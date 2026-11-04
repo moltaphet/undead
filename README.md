@@ -18,7 +18,8 @@ Fill in `.env.local` (server-side only, never commit it):
 | Variable | Required | Notes |
 | --- | --- | --- |
 | `GEMINI_API_KEY` | Yes (default provider) | Powers the autopsy, resurrection and séance. Create one in Google AI Studio. |
-| `GEMINI_MODEL` | No | Defaults to `gemini-2.5-flash`. Use a Flash-class model. |
+| `GEMINI_MODEL` | No | Defaults to `gemini-3.5-flash`. Use a Flash-class model. |
+| `GEMINI_FALLBACK_MODEL` | No | Used when the main model answers 429/5xx or takes over 45 s. Defaults to `gemini-3-flash-preview`; `none` turns it off. |
 | `LLM_PROVIDER` | No | `gemini` (default) or `anthropic`. With `anthropic`, set `ANTHROPIC_API_KEY` instead of `GEMINI_API_KEY`. |
 | `GITHUB_TOKEN` | Strongly recommended | Without it GitHub allows 60 requests an hour, about 8 repos. Use a fine-grained token with read-only access to public repositories. |
 | `NEXT_PUBLIC_SITE_URL` | In production | Public origin used in share links and social images, e.g. `https://undead.example.com`. |
@@ -36,6 +37,8 @@ Dev-only tools (404 in production): `/dev/ingest` (inspect a dossier), `/dev/cer
 1. Push the repo to GitHub and import it in Vercel (framework: Next.js, defaults are fine).
 2. In Project Settings → Environment Variables, add `GEMINI_API_KEY`, `GITHUB_TOKEN` and `NEXT_PUBLIC_SITE_URL` for Production (and Preview if you use it).
 3. Deploy. Then open `/r/atom/atom`, share it, and check the card with X's or a link-preview debugger.
+
+**Free-tier keys do not survive a public site.** A free Gemini key allows about 20 requests per day per model, and one journey makes 5 to 8. Use a key with billing enabled for the live deploy and set a budget alert. Each model call logs a `[usage] … est=$… model=…` line.
 
 Caches and rate limits are in memory per server instance (see `CLAUDE.md`, "Known limits").
 

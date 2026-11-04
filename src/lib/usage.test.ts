@@ -16,7 +16,7 @@ describe("estimateCostUsd", () => {
   });
 
   it("prices Gemini with its own table", () => {
-    expect(estimateCostUsd("gemini", million)).toBeCloseTo(0.3 + 2.5 + 0.03);
+    expect(estimateCostUsd("gemini", million)).toBeCloseTo(1.5 + 9 + 0.15);
   });
 
   it("treats missing and null counts as zero", () => {
@@ -31,7 +31,7 @@ describe("logUsage", () => {
     logUsage("autopsy", "anthropic", { input_tokens: 4_500, output_tokens: 2_000 });
     expect(info).toHaveBeenCalledWith("[usage] autopsy anthropic in=4500 out=2000 cache_read=0 cache_write=0 est=$0.0290");
     logUsage("autopsy", "gemini", { input_tokens: 4_000, output_tokens: 2_000 });
-    expect(info).toHaveBeenLastCalledWith("[usage] autopsy gemini in=4000 out=2000 cache_read=0 cache_write=0 est=$0.0062");
+    expect(info).toHaveBeenLastCalledWith("[usage] autopsy gemini in=4000 out=2000 cache_read=0 cache_write=0 est=$0.0240");
   });
 
   it("does nothing without usage", () => {

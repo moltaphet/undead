@@ -55,7 +55,7 @@ export async function generateJson<S extends z.ZodType>(opts: GenerateJsonOption
   let user = opts.user;
   for (let attempt = 1; attempt <= 2; attempt++) {
     const res = await provider.completeJson({ system: opts.system, user, maxTokens: opts.maxTokens, effort: opts.effort });
-    logUsage(attempt === 1 ? opts.label : `${opts.label}#retry`, provider.name, res.usage);
+    logUsage(attempt === 1 ? opts.label : `${opts.label}#retry`, provider.name, res.usage, res.model);
     const result = evaluate(res.text, res.stopReason, opts);
     if (result.ok) return result.data;
 

@@ -7,14 +7,16 @@ import { TtlCache } from "./cache";
 import { getDossier } from "./dossier";
 import { AppError, toAppError, type ErrorCode } from "./errors";
 import { SlidingWindowLimiter } from "./rate-limit";
+import { singleton } from "./singleton";
 import { INVALID_URL_MESSAGE, isValidOwner, isValidRepo, repoKey, type RepoRef } from "./repo-url";
 import type { Autopsy, RepoDossier, Resurrection } from "./schemas";
 
 const HOUR = 3_600_000;
-const autopsyCache = new TtlCache<Autopsy>(6 * HOUR, 200);
-const autopsyLimiter = new SlidingWindowLimiter(10, 10 * 60_000);
-const resurrectionCache = new TtlCache<Resurrection>(6 * HOUR, 200);
-const resurrectionLimiter = new SlidingWindowLimiter(5, 10 * 60_000);
+// Shared across route bundles: the autopsy API, the séance API and the pages must see the same cache.
+const autopsyCache = singleton("autopsyCache", () => new TtlCache<Autopsy>(6 * HOUR, 200));
+const autopsyLimiter = singleton("autopsyLimiter", () => new SlidingWindowLimiter(10, 10 * 60_000));
+const resurrectionCache = singleton("resurrectionCache", () => new TtlCache<Resurrection>(6 * HOUR, 200));
+const resurrectionLimiter = singleton("resurrectionLimiter", () => new SlidingWindowLimiter(5, 10 * 60_000));
 
 export interface Report {
   dossier: RepoDossier;

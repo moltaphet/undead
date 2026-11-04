@@ -4,7 +4,7 @@ import { z } from "zod";
 import { generateJson } from "../ai/generate";
 import { createSeanceStream, REFUSAL_LINE } from "../seance/stream";
 import { getProvider } from ".";
-import { geminiProvider, toGeminiError } from "./gemini";
+import { geminiProvider, resetGeminiBreaker, toGeminiError } from "./gemini";
 
 const generateContent = vi.fn();
 const generateContentStream = vi.fn();
@@ -44,6 +44,8 @@ beforeEach(() => {
   vi.stubEnv("LLM_PROVIDER", "gemini");
   vi.stubEnv("GEMINI_API_KEY", "test-key-not-real");
   vi.stubEnv("GEMINI_MODEL", "");
+  vi.stubEnv("GEMINI_FALLBACK_MODEL", "");
+  resetGeminiBreaker();
 });
 
 afterEach(() => {
@@ -84,9 +86,10 @@ describe("gemini completeJson", () => {
     generateContent.mockResolvedValueOnce(reply('{"n":1}'));
     await geminiProvider.completeJson(req);
     expect(generateContent).toHaveBeenCalledWith({
-      model: "gemini-2.5-flash",
+      model: "gemini-3.5-flash",
       contents: "usr",
       config: {
+        httpOptions: { timeout: 45_000, retryOptions: { attempts: 1 } },
         systemInstruction: "sys",
         maxOutputTokens: 4_096 + 1_024,
         responseMimeType: "application/json",
@@ -108,6 +111,7 @@ describe("gemini completeJson", () => {
     await expect(geminiProvider.completeJson(req)).resolves.toEqual({
       text: '{"n":1}',
       stopReason: "end",
+      model: "gemini-3.5-flash",
       usage: { input_tokens: 800, output_tokens: 400, cache_read_input_tokens: 200, cache_creation_input_tokens: 0 },
     });
     generateContent.mockResolvedValueOnce(reply("{", FinishReason.MAX_TOKENS));
@@ -161,8 +165,8 @@ describe("generateJson through Gemini", () => {
     await expect(generateJson(opts)).resolves.toEqual({ n: 3 });
     expect(generateContent.mock.calls[1][0].contents).toContain('{"n":"x"}');
     expect(info.mock.calls.map((c) => c[0])).toEqual([
-      "[usage] test gemini in=800 out=400 cache_read=200 cache_write=0 est=$0.0012",
-      "[usage] test#retry gemini in=800 out=400 cache_read=200 cache_write=0 est=$0.0012",
+      "[usage] test gemini in=800 out=400 cache_read=200 cache_write=0 est=$0.0048 model=gemini-3.5-flash",
+      "[usage] test#retry gemini in=800 out=400 cache_read=200 cache_write=0 est=$0.0048 model=gemini-3.5-flash",
     ]);
   });
 });
@@ -193,7 +197,7 @@ describe("gemini séance stream", () => {
 
   it("throws a typed busy error when the stream fails before any text", async () => {
     vi.spyOn(console, "warn").mockImplementation(() => {});
-    generateContentStream.mockRejectedValueOnce(new ApiError({ message: "quota", status: 429 }));
+    generateContentStream.mockRejectedValue(new ApiError({ message: "quota", status: 429 }));
     await expect(createSeanceStream("sys", [], signal())).rejects.toMatchObject({ code: "AI_BUSY" });
   });
 
@@ -207,5 +211,72 @@ describe("gemini séance stream", () => {
     const stream = await createSeanceStream("sys", [], ctrl.signal);
     await stream.cancel();
     expect(upstream?.aborted).toBe(true);
+  });
+});
+
+describe("gemini model fallback", () => {
+  const req = { system: "s", user: "u", maxTokens: 100, effort: "low" as const };
+  const overloaded = () => new ApiError({ message: "high demand", status: 503 });
+
+  beforeEach(() => vi.spyOn(console, "warn").mockImplementation(() => {}));
+
+  it("retries on the fallback model when the main model is overloaded or rate limited", async () => {
+    generateContent.mockRejectedValueOnce(overloaded()).mockResolvedValueOnce(reply("{}"));
+    const res = await geminiProvider.completeJson(req);
+    expect(generateContent.mock.calls.map((c) => c[0].model)).toEqual(["gemini-3.5-flash", "gemini-3-flash-preview"]);
+    expect(res.model).toBe("gemini-3-flash-preview");
+    resetGeminiBreaker();
+    generateContent.mockRejectedValueOnce(new ApiError({ message: "quota", status: 429 })).mockResolvedValueOnce(reply("{}"));
+    expect((await geminiProvider.completeJson(req)).model).toBe("gemini-3-flash-preview");
+  });
+
+  it("does not fall back on a configuration error", async () => {
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    generateContent.mockRejectedValueOnce(new ApiError({ message: "bad key", status: 403 }));
+    await expect(geminiProvider.completeJson(req)).rejects.toMatchObject({ code: "AI_CONFIG" });
+    expect(generateContent).toHaveBeenCalledTimes(1);
+  });
+
+  it("can be turned off, and reports busy if the fallback is overloaded too", async () => {
+    vi.stubEnv("GEMINI_FALLBACK_MODEL", "none");
+    generateContent.mockRejectedValueOnce(overloaded());
+    await expect(geminiProvider.completeJson(req)).rejects.toMatchObject({ code: "AI_BUSY" });
+    expect(generateContent).toHaveBeenCalledTimes(1);
+    vi.stubEnv("GEMINI_FALLBACK_MODEL", "");
+    generateContent.mockReset();
+    generateContent.mockRejectedValueOnce(overloaded()).mockRejectedValueOnce(overloaded());
+    await expect(geminiProvider.completeJson(req)).rejects.toMatchObject({ code: "AI_BUSY" });
+    expect(generateContent).toHaveBeenCalledTimes(2);
+  });
+
+  it("falls back for the séance stream before the first chunk", async () => {
+    generateContentStream.mockRejectedValueOnce(overloaded()).mockResolvedValueOnce(chunksOf({ text: "boo", finishReason: FinishReason.STOP }));
+    const out = await readAll(await createSeanceStream("sys", [], new AbortController().signal));
+    expect(out).toBe("boo");
+    expect(generateContentStream.mock.calls.map((c) => c[0].model)).toEqual(["gemini-3.5-flash", "gemini-3-flash-preview"]);
+  });
+
+  it("treats a main-model timeout as overload and then skips the main model for a minute", async () => {
+    const timeout = Object.assign(new Error("timed out"), { name: "TimeoutError" });
+    generateContent.mockRejectedValueOnce(timeout).mockResolvedValue(reply("{}"));
+    await geminiProvider.completeJson(req);
+    await geminiProvider.completeJson(req);
+    expect(generateContent.mock.calls.map((c) => c[0].model)).toEqual([
+      "gemini-3.5-flash",
+      "gemini-3-flash-preview",
+      "gemini-3-flash-preview",
+    ]);
+    expect(generateContent.mock.calls[0][0].config.httpOptions).toEqual({ timeout: 45_000, retryOptions: { attempts: 1 } });
+    expect(generateContent.mock.calls[1][0].config.httpOptions).toBeUndefined();
+  });
+
+  it("does not blame the model when the séance client disconnects", async () => {
+    const ctrl = new AbortController();
+    generateContentStream.mockImplementationOnce(async () => {
+      ctrl.abort();
+      throw Object.assign(new Error("aborted"), { name: "AbortError" });
+    });
+    await expect(createSeanceStream("sys", [], ctrl.signal)).rejects.toBeDefined();
+    expect(generateContentStream).toHaveBeenCalledTimes(1);
   });
 });

@@ -45,7 +45,7 @@ export async function createSeanceStream(system: string, history: SeanceMessage[
         const next = await chunks.next();
         if (next.done) {
           const final = await stream.finish();
-          logUsage(`seance history=${history.length}`, provider.name, final.usage);
+          logUsage(`seance history=${history.length}`, provider.name, final.usage, final.model);
           if (final.refused && sentText) controller.enqueue(encoder.encode(` ${REFUSAL_LINE}`));
           signal.removeEventListener("abort", abort);
           controller.close();
