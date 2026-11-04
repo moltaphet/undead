@@ -1,11 +1,11 @@
 import "server-only";
 import Anthropic from "@anthropic-ai/sdk";
 import { AppError } from "./errors";
+import { AI_BUSY_MESSAGE, AI_CONFIG_MESSAGE } from "./llm/messages";
 
 let client: Anthropic | undefined;
 
-export const AI_CONFIG_MESSAGE = "The coroner can't be reached right now. We're on it.";
-export const AI_BUSY_MESSAGE = "The morgue is busy. Try again in a minute.";
+export { AI_BUSY_MESSAGE, AI_CONFIG_MESSAGE };
 
 /** Server-only Anthropic client, created on first use so builds don't need the key. */
 export function getAnthropic(): Anthropic {

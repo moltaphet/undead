@@ -2,7 +2,7 @@
 
 > Your dead projects rise at midnight.
 
-Paste the URL of an abandoned public GitHub repo. Undead performs an AI autopsy, issues a shareable death certificate, writes a seven-night resurrection plan with a crowdfunding pitch, and lets you talk to the project's ghost. Built for Vibeathon 02 ("Night shift") with Claude.
+Paste the URL of an abandoned public GitHub repo. Undead performs an AI autopsy, issues a shareable death certificate, writes a seven-night resurrection plan with a crowdfunding pitch, and lets you talk to the project's ghost. Built for Vibeathon 02 ("Night shift") with Claude. The product runs on Gemini by default; Claude is a drop-in option.
 
 ## Setup
 
@@ -17,7 +17,9 @@ Fill in `.env.local` (server-side only, never commit it):
 
 | Variable | Required | Notes |
 | --- | --- | --- |
-| `ANTHROPIC_API_KEY` | Yes | Powers the autopsy, resurrection and séance. |
+| `GEMINI_API_KEY` | Yes (default provider) | Powers the autopsy, resurrection and séance. Create one in Google AI Studio. |
+| `GEMINI_MODEL` | No | Defaults to `gemini-2.5-flash`. Use a Flash-class model. |
+| `LLM_PROVIDER` | No | `gemini` (default) or `anthropic`. With `anthropic`, set `ANTHROPIC_API_KEY` instead of `GEMINI_API_KEY`. |
 | `GITHUB_TOKEN` | Strongly recommended | Without it GitHub allows 60 requests an hour, about 8 repos. Use a fine-grained token with read-only access to public repositories. |
 | `NEXT_PUBLIC_SITE_URL` | In production | Public origin used in share links and social images, e.g. `https://undead.example.com`. |
 
@@ -32,7 +34,7 @@ Dev-only tools (404 in production): `/dev/ingest` (inspect a dossier), `/dev/cer
 ## Deploy to Vercel
 
 1. Push the repo to GitHub and import it in Vercel (framework: Next.js, defaults are fine).
-2. In Project Settings → Environment Variables, add `ANTHROPIC_API_KEY`, `GITHUB_TOKEN` and `NEXT_PUBLIC_SITE_URL` for Production (and Preview if you use it).
+2. In Project Settings → Environment Variables, add `GEMINI_API_KEY`, `GITHUB_TOKEN` and `NEXT_PUBLIC_SITE_URL` for Production (and Preview if you use it).
 3. Deploy. Then open `/r/atom/atom`, share it, and check the card with X's or a link-preview debugger.
 
 Caches and rate limits are in memory per server instance (see `CLAUDE.md`, "Known limits").

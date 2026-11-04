@@ -1,8 +1,8 @@
 import "server-only";
 import type { z } from "zod";
-import { getAnthropic, toAiError } from "../anthropic";
-import { MODEL } from "../config";
 import { AppError } from "../errors";
+import { getProvider } from "../llm";
+import type { Effort, StopReason } from "../llm/types";
 import { logUsage } from "../usage";
 import { extractJsonObject } from "./json";
 
@@ -15,32 +15,16 @@ export interface GenerateJsonOptions<S extends z.ZodType> {
   user: string;
   schema: S;
   maxTokens: number;
-  effort: "low" | "medium" | "high";
+  effort: Exclude<Effort, "none">;
   /** Extra deterministic checks after zod; returns a list of problems (empty = fine). */
   check?: (data: z.infer<S>) => string[];
 }
 
 type Attempt<T> = { ok: true; data: T } | { ok: false; output: string; problems: string[] };
 
-async function callModel(system: string, user: string, maxTokens: number, effort: GenerateJsonOptions<z.ZodType>["effort"]) {
-  try {
-    return await getAnthropic().beta.messages.create({
-      model: MODEL,
-      max_tokens: maxTokens,
-      system,
-      messages: [{ role: "user", content: user }],
-      output_config: { effort },
-      betas: ["server-side-fallback-2026-07-01"],
-      fallbacks: "default",
-    });
-  } catch (err) {
-    throw toAiError(err);
-  }
-}
-
 function evaluate<S extends z.ZodType>(
   text: string,
-  stopReason: string | null,
+  stopReason: StopReason,
   opts: GenerateJsonOptions<S>,
 ): Attempt<z.infer<S>> {
   if (stopReason === "refusal") return { ok: false, output: text, problems: ["The response was declined."] };
@@ -67,12 +51,12 @@ function evaluate<S extends z.ZodType>(
  * and retries once with the problems listed. Throws AI_BAD_OUTPUT if both attempts fail.
  */
 export async function generateJson<S extends z.ZodType>(opts: GenerateJsonOptions<S>): Promise<z.infer<S>> {
+  const provider = getProvider();
   let user = opts.user;
   for (let attempt = 1; attempt <= 2; attempt++) {
-    const res = await callModel(opts.system, user, opts.maxTokens, opts.effort);
-    logUsage(attempt === 1 ? opts.label : `${opts.label}#retry`, res.usage);
-    const text = res.content.flatMap((b) => (b.type === "text" ? [b.text] : [])).join("");
-    const result = evaluate(text, res.stop_reason, opts);
+    const res = await provider.completeJson({ system: opts.system, user, maxTokens: opts.maxTokens, effort: opts.effort });
+    logUsage(attempt === 1 ? opts.label : `${opts.label}#retry`, provider.name, res.usage);
+    const result = evaluate(res.text, res.stopReason, opts);
     if (result.ok) return result.data;
 
     console.warn(`[ai] attempt ${attempt} invalid:`, result.problems.slice(0, 8).join(" | "));

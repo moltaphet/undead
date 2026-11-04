@@ -1,5 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { modelAutopsy } from "@/test/autopsy-fixture";
 import { ghCommits, ghRepo } from "@/test/fixtures";
 import { buildDossier } from "../dossier";
@@ -53,7 +53,12 @@ function dossierWith(over: Parameters<typeof ghRepo>[0] = {}, readme = "A small 
   ).dossier;
 }
 
-beforeEach(() => streamFn.mockClear());
+beforeEach(() => {
+  streamFn.mockClear();
+  vi.stubEnv("LLM_PROVIDER", "anthropic");
+});
+
+afterEach(() => vi.unstubAllEnvs());
 
 describe("seance request schema", () => {
   const base = { owner: "o", repo: "r" };

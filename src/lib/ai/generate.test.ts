@@ -1,5 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { z } from "zod";
 import { generateJson } from "./generate";
 
@@ -24,7 +24,12 @@ const opts = {
   effort: "low" as const,
 };
 
-beforeEach(() => create.mockReset());
+beforeEach(() => {
+  create.mockReset();
+  vi.stubEnv("LLM_PROVIDER", "anthropic");
+});
+
+afterEach(() => vi.unstubAllEnvs());
 
 describe("generateJson", () => {
   it("returns valid output on the first try", async () => {

@@ -15,7 +15,9 @@ Narrow and polished beats broad and buggy. Judges click the example repos first:
 - Next.js 16.4.4 App Router, React 19.3, TS strict, `src/`, alias `@/*`. `cacheComponents` + `partialPrefetching` on:
   uncached data / `headers()` / `params` must sit under Suspense (`loading.tsx` provides it). `fetch` `next.revalidate` is the old model; don't use it.
 - Tailwind 4.3.4, CSS-first: tokens in `@theme` in `src/app/globals.css`. No tailwind.config, no PostCSS config.
-- `@anthropic-ai/sdk` 1.4. Model id lives ONLY in `MODEL` (`src/lib/config.ts`): `claude-sonnet-5-5`.
+- Models go through `src/lib/llm/` (`getProvider()`): Gemini via `@google/genai` (default; model `GEMINI_MODEL`, default
+  `gemini-2.5-flash`) or Claude via `@anthropic-ai/sdk` 1.4 (`LLM_PROVIDER=anthropic`; model id in `MODEL`, `src/lib/config.ts`).
+  Parameters specific to one provider stay inside that provider's file; `generate.ts` and `seance/stream.ts` are provider-neutral.
 - zod 4, server-only, vitest 5. Ask before adding any other dependency. Deploy: Vercel. No database.
 
 ## Structure
@@ -49,7 +51,7 @@ assets/fonts/                    WOFF fonts for ImageResponse (OFL licences alon
 - CTA links to AI pages use `prefetch={false}` so prefetching never spends credits.
 
 ## Security rules
-- `ANTHROPIC_API_KEY` (required) and `GITHUB_TOKEN` (optional but effectively required: 60 GitHub calls/hour
+- `GEMINI_API_KEY` (or `ANTHROPIC_API_KEY` with `LLM_PROVIDER=anthropic`) and `GITHUB_TOKEN` (the AI key is required; the token is optional but effectively required: 60 GitHub calls/hour
   without it, ~7 per ingest) are read only in server code from `.env.local`. Never in client code, never
   `NEXT_PUBLIC_`, never logged, never committed (`.env*` ignored except `.env.example`).
 - `GITHUB_TOKEN`: fine-grained, public-repo read only. Private repos are refused regardless.
