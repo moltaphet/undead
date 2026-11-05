@@ -29,7 +29,8 @@ src/app/r/[owner]/[repo]/        autopsy page (+ opengraph/twitter-image), resur
 src/app/api/                     ingest, autopsy, seance (stream), certificate/[owner]/[repo]
 src/app/dev/                     dev-only tools (404 in production): ingest, certificate fixtures, preview/[view]
 src/lib/github.ts + dossier.ts   GitHub fetch → RepoDossier (≤12k chars), dossierToPrompt, 30-min cache
-src/lib/report.ts                getReport / getResurrection: caches (6h, key repo@pushedAt) + per-IP limits
+src/lib/example-snapshots.ts     the 3 example repos served from src/data/examples/*.json (real output, zod-checked; regenerate via vitest.snapshot.config.mts)
+src/lib/report.ts                getReport / getResurrection (snapshots first): caches (6h, key repo@pushedAt) + per-IP limits
 src/lib/ai/                      generate.ts (JSON → zod → retry once), autopsy, resurrection (+ rules)
 src/lib/prompts/                 autopsy, resurrection, seance system prompts
 src/lib/seance/                  archetype, stream (first-chunk preflight), typewriter pacing

@@ -1,0 +1,577 @@
+{
+  "generatedAt": "2026-11-05T10:58:44.856Z",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash",
+  "dossier": {
+    "repo": {
+      "owner": "adobe",
+      "name": "brackets",
+      "fullName": "adobe/brackets",
+      "description": "An open source code editor for the web, written in JavaScript, HTML and CSS.",
+      "url": "https://github.com/adobe/brackets",
+      "homepage": "http://brackets.io",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/476009?v=4",
+      "stars": 32966,
+      "forks": 7426,
+      "watchers": 27,
+      "openIssues": 2773,
+      "language": "JavaScript",
+      "topics": [],
+      "license": "MIT",
+      "createdAt": "2011-12-07T21:14:40Z",
+      "pushedAt": "2022-06-12T08:19:24Z",
+      "archived": true,
+      "isFork": false,
+      "defaultBranch": "master"
+    },
+    "readme": {
+      "text": "| :warning: On September 1, 2021, Adobe will end support for Brackets. If you would like to continue using, maintaining, and improving Brackets, you may fork the project on [GitHub](https://github.com/adobe/brackets). Through Adobe’s partnership with Microsoft, we encourage users to migrate to [Visual Studio Code](https://aka.ms/brackets-to-vscode), Microsoft’s free code editor built on open source.\n| ---\n\nWelcome to Brackets!\n-------------------\n\nBrackets is a modern open-source code editor for HTML, CSS\nand JavaScript that's *built* in HTML, CSS and JavaScript.\n\nWhat makes Brackets different from other web code editors?\n\n* **Tools shouldn't get in your way.** Instead of cluttering up your coding\nenvironment with lots of panels and icons, the Quick Edit UI in Brackets puts\ncontext-specific code and tools inline.\n* **Brackets is in sync with your browser.** With Live Preview, Brackets\nworks directly with your browser to push code edits instantly and jump\nback and forth between your real source code and the browser view.\n* **Do it yourself.** Because Brackets is open source, and built with HTML, CSS\nand JavaScript, you can [help build](https://github.com/adobe/brackets/blob/master/CONTRIBUTING.md) the best code editor for the web.\n\nBrackets may have reached version 1, but we're not stopping there. We have many feature ideas on our\n[trello board](http://bit.ly/BracketsTrelloBoard) that we're anxious to add and other\ninnovative web development workflows that we're planning to build into Brackets.\nSo take Brackets out for a spin and let us know how we can make it your favorite editor.\n\nYou can see some\n[screenshots of Brackets](https://github.com/adobe/brackets/wiki/Brackets-Screenshots)\non the wiki, [intro videos](http://www.youtube.com/user/CodeBrackets) on YouTube, and news on the [Brackets blog](http://blog.brackets.io/).\n\nHow to install and run Brackets\n-------------------------------\n#### Download\n\nInstallers for the latest stable build for Mac, Windows and Linux (Debian/Ubuntu) can be [downloaded here](http://brackets.io/).\n\n#### Usage\n\nBy default, Brackets opens a folder containing some simple \"Getting Started\" content.\nYou can choose a different folder to edit using *File > Open Folder*.\n\nMost of Brackets should be pretty self-explanatory, but for information on how\nto use its unique features, like Quick Edit and Live Preview, please read\n[How to Use Brackets](http://github.com/adobe/brackets/wiki/How-to-Use-Brackets).\nAlso, see the [release notes](http://github.com/adobe/brackets/wiki/Release-Notes)\nfor a list of new features and known issues in each build.\n\nIn addition to the core features built into Brackets, there is a large and growing\ncommunity of developers building extensions that add all sorts of useful functionality.\nSee the [Brackets Extension Registry](https://registry.brackets.io/)\nfor a list of available extensions. For installation instructions,\nsee the [extensions wiki page](https://github.com/adobe/brackets/wiki/Brackets-Extensions).\n\n#### Need help?\n\nHaving problems starting Brackets the first time, or not sure how to use Brackets? Please\nreview [Troubleshooting](https://github.com/adobe/brackets/wiki/Troubleshooting), which helps\nyou to fix common problems and find extra help if needed.\n\nHelping Brackets\n----------------\n\n#### I found a bug!\n\nIf you found a repeatable bug, and [troubleshooting](https://github.com/adobe/brackets/wiki/Troubleshooting)\ntips didn't help, then be sure to [search existing issues](https://github.com/adobe/brackets/issues) first.\nInclude steps to consistently reproduce the problem, actual vs. expected results, screenshots, and your OS and\nBrackets version number. Disable all extensions to verify the issue is a core Brackets bug.\n[Read more guidelines for filing good bugs.](https://github.com/adobe/brackets/wiki/How-to-Report-an-Issue)\n\n#### I have a new suggestion, but don't know how to program!\n\nFor feature requests please first check our [Trello board](http://bit.ly/BracketsBacklog) to\nsee if it's already there; you can upvote it if so. If not, feel free to file it as an issue as above; we'll\nmove it to the feature backlog for you.\n\n#### I want to help with the code!…",
+      "truncated": true
+    },
+    "commits": [
+      {
+        "sha": "d55ac60",
+        "message": "Change hyperlink",
+        "author": "Swagatam Mitra",
+        "date": "2021-03-18T13:52:19Z"
+      },
+      {
+        "sha": "f0cae55",
+        "message": "EOL Notification (#15325)",
+        "author": "Swagatam Mitra",
+        "date": "2021-03-01T11:10:07Z"
+      },
+      {
+        "sha": "ca877bb",
+        "message": "Merge pull request #15106 from niteskum/AssociateGraphicAfterGUIDGenerated",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-27T10:56:06Z"
+      },
+      {
+        "sha": "d99dbdd",
+        "message": "Graphics File Assciate should get triggered after UUID is generated",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-27T07:25:09Z"
+      },
+      {
+        "sha": "f37493f",
+        "message": "Merge pull request #15100 from niteskum/windowsPathCorrection",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-24T06:33:45Z"
+      },
+      {
+        "sha": "35917cb",
+        "message": "Addressed review comments",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-24T06:22:02Z"
+      },
+      {
+        "sha": "90cf9b0",
+        "message": "Revert \"Revert \"check iin config file\"\"",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-23T14:23:10Z"
+      },
+      {
+        "sha": "e7613db",
+        "message": "Merge branch 'master' of https://github.com/adobe/brackets into windowsPathCorrection",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-23T14:16:28Z"
+      },
+      {
+        "sha": "a552a10",
+        "message": "Merge pull request #15098 from niteskum/lodashModuleUpgrade",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-23T14:09:48Z"
+      },
+      {
+        "sha": "2356f32",
+        "message": "Revert \"check iin config file\"",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-23T11:13:52Z"
+      },
+      {
+        "sha": "59e8e91",
+        "message": "Netwrk path also need to be converted to windows style",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-23T11:06:27Z"
+      },
+      {
+        "sha": "0c87777",
+        "message": "Merge branch 'lodashModuleUpgrade' of https://github.com/niteskum/brackets",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-23T07:09:37Z"
+      },
+      {
+        "sha": "fa6e9fc",
+        "message": "Merge pull request #15093 from adobe/alf_localization_1.14",
+        "author": "Narayani",
+        "date": "2020-03-23T06:59:52Z"
+      },
+      {
+        "sha": "0af714b",
+        "message": "Updated by ALF automation.",
+        "author": "walf",
+        "date": "2020-03-20T16:56:14Z"
+      },
+      {
+        "sha": "d50cb26",
+        "message": "check iin config file",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-20T06:31:15Z"
+      },
+      {
+        "sha": "9f44657",
+        "message": "Updated by ALF automation.",
+        "author": "walf",
+        "date": "2020-03-20T04:35:52Z"
+      },
+      {
+        "sha": "78eb8cf",
+        "message": "Merge branch 'master' into alf_localization_1.14",
+        "author": "walf",
+        "date": "2020-03-20T04:34:21Z"
+      },
+      {
+        "sha": "b301acc",
+        "message": "upgrading lodash node module to 4.17.15 from 4.17.4",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-19T19:56:27Z"
+      },
+      {
+        "sha": "b4abc5a",
+        "message": "Merge pull request #15096 from niteskum/WinPathIssueWithExtEditor",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-19T18:58:53Z"
+      },
+      {
+        "sha": "406b44c",
+        "message": "Merge pull request #15097 from niteskum/OpenWithExternalAppStrings",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-19T17:20:40Z"
+      },
+      {
+        "sha": "ee9ede2",
+        "message": "Addressed review comments",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-19T17:16:26Z"
+      },
+      {
+        "sha": "3120f48",
+        "message": "On Wiindows Path is converted to windows style when opening with external editor",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-19T15:44:03Z"
+      },
+      {
+        "sha": "313bb4e",
+        "message": "Updated strings for Graphics File Association",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-19T13:35:38Z"
+      },
+      {
+        "sha": "9a040bf",
+        "message": "Updated strings for Graphics File Association",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-19T13:32:23Z"
+      },
+      {
+        "sha": "f9f584e",
+        "message": "On Wiindows Path is converted to windows style when opening with external editor",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-19T06:40:12Z"
+      },
+      {
+        "sha": "950e72a",
+        "message": "Updated by ALF automation.",
+        "author": "walf",
+        "date": "2020-03-18T16:56:39Z"
+      },
+      {
+        "sha": "7a8ce6a",
+        "message": "Merge branch 'master' into alf_localization_1.14",
+        "author": "walf",
+        "date": "2020-03-18T16:55:05Z"
+      },
+      {
+        "sha": "62c23d3",
+        "message": "Merge pull request #15092 from niteskum/graphicsFileExternalApplication",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-18T11:17:47Z"
+      },
+      {
+        "sha": "5fb5763",
+        "message": "code corrections",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-17T18:55:48Z"
+      },
+      {
+        "sha": "1d82fbe",
+        "message": "Merge branch 'graphicsFileExternalApplication' of https://github.com/niteskum/brackets into graphicsFileExternalApplication",
+        "author": "Nitesh Kumar",
+        "date": "2020-03-17T18:29:38Z"
+      }
+    ],
+    "languages": [
+      {
+        "name": "JavaScript",
+        "percent": 84
+      },
+      {
+        "name": "HTML",
+        "percent": 13.1
+      },
+      {
+        "name": "Less",
+        "percent": 1.4
+      },
+      {
+        "name": "CSS",
+        "percent": 1.2
+      },
+      {
+        "name": "PHP",
+        "percent": 0.2
+      }
+    ],
+    "tree": [
+      {
+        "name": ".brackets.json",
+        "type": "file"
+      },
+      {
+        "name": ".eslintignore",
+        "type": "file"
+      },
+      {
+        "name": ".eslintrc.js",
+        "type": "file"
+      },
+      {
+        "name": ".gitattributes",
+        "type": "file"
+      },
+      {
+        "name": ".gitignore",
+        "type": "file"
+      },
+      {
+        "name": ".gitmodules",
+        "type": "file"
+      },
+      {
+        "name": ".npmrc",
+        "type": "file"
+      },
+      {
+        "name": ".travis.yml",
+        "type": "file"
+      },
+      {
+        "name": "CODE_OF_CONDUCT.md",
+        "type": "file"
+      },
+      {
+        "name": "CONTRIBUTING.md",
+        "type": "file"
+      },
+      {
+        "name": "Gruntfile.js",
+        "type": "file"
+      },
+      {
+        "name": "ISSUE_TEMPLATE.md",
+        "type": "file"
+      },
+      {
+        "name": "LICENSE",
+        "type": "file"
+      },
+      {
+        "name": "NOTICE",
+        "type": "file"
+      },
+      {
+        "name": "README.md",
+        "type": "file"
+      },
+      {
+        "name": "build.json",
+        "type": "file"
+      },
+      {
+        "name": "npm-shrinkwrap.json",
+        "type": "file"
+      },
+      {
+        "name": "package.json",
+        "type": "file"
+      },
+      {
+        "name": "samples",
+        "type": "dir"
+      },
+      {
+        "name": "src",
+        "type": "dir"
+      },
+      {
+        "name": "tasks",
+        "type": "dir"
+      },
+      {
+        "name": "test",
+        "type": "dir"
+      },
+      {
+        "name": "tools",
+        "type": "dir"
+      }
+    ],
+    "packageJson": {
+      "name": "Brackets",
+      "description": null,
+      "dependencies": [
+        "anymatch",
+        "async",
+        "chokidar",
+        "decompress-zip",
+        "fs-extra",
+        "lodash",
+        "npm",
+        "opn",
+        "request",
+        "semver",
+        "temp",
+        "ws"
+      ],
+      "devDependencies": [
+        "glob",
+        "grunt",
+        "husky",
+        "jasmine-node",
+        "grunt-jasmine-node",
+        "grunt-cli",
+        "phantomjs",
+        "grunt-lib-phantomjs",
+        "grunt-eslint",
+        "grunt-contrib-watch",
+        "grunt-contrib-jasmine",
+        "grunt-template-jasmine-requirejs",
+        "grunt-contrib-cssmin",
+        "grunt-contrib-clean",
+        "grunt-contrib-copy",
+        "grunt-contrib-htmlmin",
+        "grunt-contrib-less",
+        "grunt-contrib-requirejs",
+        "grunt-contrib-uglify",
+        "grunt-contrib-concat",
+        "grunt-targethtml",
+        "grunt-usemin",
+        "grunt-cleanempty",
+        "load-grunt-tasks",
+        "q",
+        "rewire",
+        "tar",
+        "webpack",
+        "xmldoc",
+        "zlib"
+      ],
+      "scripts": [
+        "prepush",
+        "postinstall",
+        "test",
+        "eslint"
+      ]
+    },
+    "openIssueTitles": [
+      "unable to download any video via you-get",
+      "Project Phoenix: Brackets next generations.",
+      "Selective Anonymity (custom profile names)",
+      "Back merge failed show deleted file ",
+      "Download link for macOS",
+      "bug in PFPO instruction on hercules 4.4",
+      "jupyter notebook(.ipynb) doesn't load(render) after uploading on GitHub it kept showing reload  kindly resolve this issue-(Windows user)",
+      "Live Preview breaks when entering \"<\" to start a new tag in html -- Issue unresolved since YEARS -- Unfixable?",
+      "New install - No \"beloved\" LivePreview :( .. error launcing browser",
+      "clickhouse Backup and Restore issue - tables are empty after the restore."
+    ],
+    "signals": {
+      "ageDays": 5446,
+      "daysSinceLastPush": 1607,
+      "status": "dead",
+      "commitCadence": {
+        "perWeek": 0.6,
+        "sampleSize": 30,
+        "firstCommitDate": "2020-03-17T18:29:38.000Z",
+        "lastCommitDate": "2021-03-18T13:52:19.000Z"
+      },
+      "lastWords": "Change hyperlink",
+      "hasHomepage": true,
+      "hasLicense": true,
+      "hasTests": true
+    },
+    "notes": [
+      "Commit cadence is measured over the latest 30 commits only."
+    ],
+    "fetchedAt": "2026-11-05T10:58:26.951Z"
+  },
+  "autopsy": {
+    "causeOfDeath": {
+      "headline": "Official corporate euthanasia in favor of Microsoft Visual Studio Code",
+      "explanation": "Adobe explicitly sunset Brackets on September 1, 2021, encouraging its user base to migrate to VS Code. The commit history shows automated localization updates and minor fixes leading up to commit f0cae55 ('EOL Notification (#15325)')."
+    },
+    "timeOfDeath": {
+      "date": "2021-03-01T00:00:00.000Z",
+      "note": "Commit f0cae55 officially added the EOL Notification notice to the repository."
+    },
+    "diagnosis": [
+      {
+        "factor": "outcompeted",
+        "severity": 5,
+        "evidence": "VS Code dominated the web-built text editor landscape, prompting Adobe to explicitly direct users to migrate to VS Code in the README."
+      },
+      {
+        "factor": "platform_shift",
+        "severity": 4,
+        "evidence": "Built on custom CEF/Node shells during the early 2010s HTML/JS desktop app era, it lost ecosystem velocity compared to Electron-standardized platforms."
+      },
+      {
+        "factor": "lost_interest",
+        "severity": 3,
+        "evidence": "The last commits in early 2020 and 2021 were mostly automated localization updates ('Updated by ALF automation') and minor path fixes before the final EOL notice."
+      }
+    ],
+    "worthSaving": [
+      "Inline Quick Edit UI pattern for context-sensitive CSS/JS editing",
+      "Live Preview browser sync mechanism",
+      "Extensive history of web-centric editor extension architecture"
+    ],
+    "marketToday": {
+      "verdict": "gone",
+      "reasoning": "The web-editor landscape is firmly dominated by VS Code, modern web-based IDEs, and AI-native editors like Cursor. Rebuilding an HTML/CSS/JS text editor from 2011 without deep AI integration or modern language server protocol native support offers no competitive edge today."
+    },
+    "revivalScore": 10,
+    "revivalScoreReason": "The owner officially archived the project and surrendered the market to VS Code, leaving thousands of abandoned open issues.",
+    "epitaph": "Pioneered web editors in HTML, only to be retired by VS Code.",
+    "lastWords": "Change hyperlink"
+  },
+  "resurrection": {
+    "honestNote": "Brackets as a general-purpose web editor is dead; VS Code and Cursor own that market completely. The revival strategy pivots the original inline Quick Edit UI into a lightweight browser extension that brings instant, context-aware visual CSS/HTML tweaking directly into production sites for freelance designers.",
+    "newPositioning": {
+      "oneLiner": "Inline visual CSS editing inside your live browser tab.",
+      "targetUser": "Freelance web designers editing client sites on Webflow or WordPress",
+      "painPoint": "Constantly context-switching between DevTools and source files to tweak UI spacing and fonts.",
+      "whyNow": "Chrome Extension Manifest V3 and modern DOM mutation APIs make zero-latency overlay editing effortless without a heavy desktop IDE."
+    },
+    "mvpCut": {
+      "keep": [
+        "Inline Quick Edit UI panel over target HTML elements",
+        "Live CSS rule inspection and direct manipulation",
+        "Instant export of modified styles as clean CSS snippets"
+      ],
+      "kill": [
+        "Desktop file system access — because we run entirely as a Chrome extension",
+        "Custom extension registry — because standard browser extension APIs handle storage",
+        "Node/CEF desktop runtime wrapper — because native browser DOM is faster",
+        "Built-in web server — because we inject directly into live pages"
+      ],
+      "build": [
+        "Chrome Extension overlay toolbar",
+        "One-click CSS copy/export for applied page changes"
+      ]
+    },
+    "sevenDayPlan": [
+      {
+        "day": 1,
+        "title": "Validate Target Friction",
+        "tasks": [
+          "Direct message 10 freelance web designers on Twitter/X asking about their live CSS tweaking workflow",
+          "Record 3 screen-shares of users editing CSS via browser Inspect Element",
+          "Write 1-page spec focusing exclusively on instant element selection and CSS tweaking"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "Core Overlay Engine",
+        "tasks": [
+          "Scaffold Chrome Extension using Manifest V3 and React",
+          "Implement DOM element hover state overlay and selection logic",
+          "Deploy basic extension package locally to confirm element targeting works on 5 test sites"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Inline Quick Edit Panel",
+        "tasks": [
+          "Build floating inline style editor UI modeled on Brackets Quick Edit",
+          "Connect inline controls directly to target element's inline style declarations",
+          "Verify changes update instantly on page without layout jump"
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Export & Diff Engine",
+        "tasks": [
+          "Track modified CSS rules in extension local storage",
+          "Build a 'Copy CSS Patch' drawer showing before/after diffs",
+          "Verify exported CSS paste directly into Webflow/WordPress custom CSS fields"
+        ]
+      },
+      {
+        "day": 5,
+        "title": "Distribution Asset Prep",
+        "tasks": [
+          "Build high-converting landing page with 30-second GIF demonstrating element selection",
+          "Record 45-second loom video showing zero-friction workflow",
+          "Submit extension to Chrome Web Store"
+        ]
+      },
+      {
+        "day": 6,
+        "title": "Community Outreach",
+        "tasks": [
+          "Post demo video on r/webdesign and r/freelance",
+          "Share thread on X showing instant CSS tweaking vs DevTools hassle",
+          "Send direct email with video link to 15 agency design leads"
+        ]
+      },
+      {
+        "day": 7,
+        "title": "Public Launch",
+        "tasks": [
+          "Publish Product Hunt launch page by 8:00 AM PST",
+          "Reply to every comment and feature request within 15 minutes",
+          "Target 50 active installed users by end of day"
+        ]
+      }
+    ],
+    "landingCopy": {
+      "headline": "Stop wrestling with browser DevTools to edit live CSS",
+      "subheadline": "Tweak fonts, colors, and layout right on the page, then copy clean CSS snippets instantly.",
+      "bullets": [
+        "Click any element to open context-aware visual controls right where you work",
+        "Live preview layout edits instantly without refreshing your browser tab",
+        "Export clean, copy-paste ready CSS diffs with a single click"
+      ],
+      "cta": "Install Chrome Extension"
+    },
+    "launchPosts": {
+      "x": "Remember Brackets' legendary Quick Edit UI? I rebuilt it as a lightweight Chrome extension. Point at any element on a live page, tweak styles visually, copy clean CSS diffs. No DevTools panel clutter. Free beta live now 👇 #webdesign",
+      "firstUsersWhere": [
+        "r/webdesign — Active community of freelance designers building client sites daily.",
+        "Webflow Community Forum — Designers frequently tweak custom CSS overrides on production builds.",
+        "Designer Hangout Slack — Dedicated channels for front-end tools and workflow optimizations."
+      ]
+    },
+    "crowdfundingPitch": {
+      "title": "Brackets Inline Quick Edit — Relaounced as a Chrome Extension",
+      "story": "I used to love Adobe Brackets for its unique inline editing UI. But when Adobe officially sunset the project in 2021 to steer everyone toward VS Code, the core idea of friction-free contextual editing got lost inside massive desktop editors. General-purpose code editors lost the simple magic of quick web tweaking. I decided to resurrect Brackets' best feature—the Quick Edit overlay—and bring it straight into modern browser tabs. No heavy desktop runtimes, no complex build setups. Just instant visual style editing for freelance designers working directly on live web pages.",
+      "fundingUse": [
+        "Chrome Web Store developer registration and publishing pipeline setup",
+        "Cross-browser compatibility testing across Chrome, Edge, and Brave",
+        "Hosting for public docs and export template hosting"
+      ],
+      "backerReward": "Get early access to private beta builds and get your name listed as a founding backer in the extension options menu."
+    },
+    "aiBuildPrompt": "Build a Chrome Extension (Manifest V3) using React and Tailwind CSS that injects an inline CSS editor panel onto any web page. Target user: Freelance web designers. Primary feature: User clicks an element on the active page, a floating UI panel appears floating next to the element (inspired by Brackets Quick Edit). The panel shows controls for font-size, line-height, color, margin, and padding. Changing inputs updates the element's styles in real-time. Include a 'Copy Diff' button in the toolbar that generates valid CSS code for all modified elements on the page. Do NOT build a file tree, desktop integration, or code editor tab. Definition of done: Extension loads via Chrome Developer Mode, permits selecting DOM nodes on any site, updates styles instantly, and copies changed CSS rules to clipboard."
+  }
+}

@@ -131,6 +131,16 @@ src/components/                  feature folders + a small ui kit
 - **Limits.** Autopsies: 10 per IP per 10 minutes. Resurrections: 5 per IP per 10 minutes. Séance: 40 messages per IP per 10 minutes, up to 20 messages per conversation, 1,000 characters per user message. Request bodies are size-capped.
 - **No database.** The product is stateless; the only persistence is the visitor's own `localStorage`.
 
+## The three example repos are instant
+
+`atom/atom`, `adobe/brackets` and `angular/angular.js` (the one-click demos on the home page) open from **real model output saved once** in `src/data/examples/`. The autopsy, certificate and resurrection plan for these three need no GitHub call, no model call and no credits, so a judge's first click is instant and cannot hit a quota. Only the séance still calls the model. The snapshots pass the same zod schemas and tone checks as live output (there is a test for it). To regenerate them:
+
+```bash
+node --env-file=.env.local node_modules/.bin/vitest run --config vitest.snapshot.config.mts
+```
+
+Set `ONLY=owner/repo` to redo one. Any other repo runs the full live pipeline.
+
 ## What it costs to run
 
 Measured on a live Gemini run against `atom/atom`:

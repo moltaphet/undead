@@ -1,0 +1,614 @@
+{
+  "generatedAt": "2026-11-05T10:58:11.070Z",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash",
+  "dossier": {
+    "repo": {
+      "owner": "atom",
+      "name": "atom",
+      "fullName": "atom/atom",
+      "description": "The hackable text editor",
+      "url": "https://github.com/atom/atom",
+      "homepage": "https://atom.io",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/1089146?v=4",
+      "stars": 60695,
+      "forks": 17164,
+      "watchers": 4,
+      "openIssues": 992,
+      "language": "JavaScript",
+      "topics": [
+        "atom",
+        "editor",
+        "electron",
+        "javascript",
+        "linux",
+        "macos",
+        "windows"
+      ],
+      "license": "MIT",
+      "createdAt": "2012-01-20T18:18:21Z",
+      "pushedAt": "2023-01-03T10:49:48Z",
+      "archived": true,
+      "isFork": false,
+      "defaultBranch": "master"
+    },
+    "readme": {
+      "text": "# Atom\n\n> Atom and all repositories under Atom will be archived on December 15, 2022. Learn more in our [official announcement](https://github.blog/2022-06-08-sunsetting-atom/)\n\nAtom is a hackable text editor for the 21st century, built on [Electron](https://github.com/electron/electron), and based on everything we love about our favorite editors. We designed it to be deeply customizable, but still approachable using the default configuration.\n\nVisit [atom.io](https://atom.io) to learn more or visit the [Atom forum](https://github.com/atom/atom/discussions).\n\nFollow [@AtomEditor](https://twitter.com/atomeditor) on Twitter for important\nannouncements.\n\nThis project adheres to the Contributor Covenant [code of conduct](CODE_OF_CONDUCT.md).\nBy participating, you are expected to uphold this code. Please report unacceptable behavior to atom@github.com.\n\n## Documentation\n\nIf you want to read about using Atom or developing packages in Atom, the [Atom Flight Manual](https://flight-manual.atom.io) is free and available online. You can find the source to the manual in [atom/flight-manual.atom.io](https://github.com/atom/flight-manual.atom.io).\n\nThe [API reference](https://atom.io/docs/api) for developing packages is also documented on Atom.io.\n\n## Installing\n\n### Prerequisites\n- [Git](https://git-scm.com)\n\n### macOS\n\nDownload the latest [Atom release](https://github.com/atom/atom/releases/latest).\n\nAtom will automatically update when a new release is available.\n\n### Windows\n\nDownload the latest [Atom installer](https://github.com/atom/atom/releases/latest). `AtomSetup.exe` is 32-bit. For 64-bit systems, download `AtomSetup-x64.exe`.\n\nAtom will automatically update when a new release is available.\n\nYou can also download `atom-windows.zip` (32-bit) or `atom-x64-windows.zip` (64-bit) from the [releases page](https://github.com/atom/atom/releases/latest).\nThe `.zip` version will not automatically update.\n\nUsing [Chocolatey](https://chocolatey.org)? Run `cinst Atom` to install the latest version of Atom.\n\n### Linux\n\nAtom is only available for 64-bit Linux systems.\n\nConfigure your distribution's package manager to install and update Atom by following the [Linux installation instructions](https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-linux) in the Flight Manual. You will also find instructions on how to install Atom's official Linux packages without using a package repository, though you will not get automatic updates after installing Atom this way.\n\n#### Archive extraction\n\nAn archive is available for people who don't want to install `atom` as root.\n\nThis version enables you to install multiple Atom versions in parallel. It has been built on Ubuntu 64-bit,\nbut should be compatible with other Linux distributions.\n\n1. Install dependencies (on Ubuntu):\n```sh\nsudo apt install git libasound2 libcurl4 libgbm1 libgcrypt20 libgtk-3-0 libnotify4 libnss3 libglib2.0-bin xdg-utils libx11-xcb1 libxcb-dri3-0 libxss1 libxtst6 libxkbfile1\n```\n2. Download `atom-amd64.tar.gz` from the [Atom releases page](https://github.com/atom/atom/releases/latest).\n3. Run `tar xf atom-amd64.tar.gz` in the directory where you want to extract the Atom folder.\n4. Launch Atom using the installed `atom` command from the newly extracted directory.\n\nThe Linux version does not currently automatically update so you will need to\nrepeat these steps to upgrade to future releases.\n\n## Building\n\n* [Linux](https://flight-manual.atom.io/hacking-atom/sections/hacking-on-atom-core/#platform-linux)\n* [macOS](https://flight-manual.atom.io/hacking-atom/sections/hacking-on-atom-core/#platform-mac)\n* [Windows](https://flight-manual.atom.io/hacking-atom/sections/hacking-on-atom-core/#platform-windows)\n\n## Discussion\n\n* Discuss Atom on [GitHub Discussions](https://github.com/atom/atom/discussions)\n\n## License\n\n[MIT](https://github.com/atom/atom/blob/master/LICENSE.md)\n\nWhen using the Atom or other GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).",
+      "truncated": false
+    },
+    "commits": [
+      {
+        "sha": "1c3bd35",
+        "message": "Merge pull request #25709 from atom/fix-snapshot-result-macos",
+        "author": "Sergio Padrino",
+        "date": "2022-11-22T16:11:57Z"
+      },
+      {
+        "sha": "6b696d6",
+        "message": "Use the new naming format for snapshots on macOS",
+        "author": "Sergio Padrino",
+        "date": "2022-11-22T15:56:11Z"
+      },
+      {
+        "sha": "f54276d",
+        "message": "1.65.0-dev",
+        "author": "Hubot",
+        "date": "2022-11-16T14:31:05Z"
+      },
+      {
+        "sha": "a0bbe30",
+        "message": "1.64.0-dev",
+        "author": "Hubot",
+        "date": "2022-11-16T11:39:58Z"
+      },
+      {
+        "sha": "729daa2",
+        "message": "Merge pull request #25694 from atom/fix-uploads",
+        "author": "Sadick",
+        "date": "2022-11-15T05:29:26Z"
+      },
+      {
+        "sha": "4decada",
+        "message": "Remove dependancies.",
+        "author": "sadick254",
+        "date": "2022-11-15T05:27:44Z"
+      },
+      {
+        "sha": "8f388db",
+        "message": "Merge pull request #25693 from atom/disable-tests",
+        "author": "Sadick",
+        "date": "2022-11-15T05:25:04Z"
+      },
+      {
+        "sha": "3f66da9",
+        "message": "Disable tests.",
+        "author": "sadick254",
+        "date": "2022-11-15T03:49:01Z"
+      },
+      {
+        "sha": "2291b59",
+        "message": "Merge pull request #25684 from atom/install-from-github",
+        "author": "Sadick",
+        "date": "2022-11-10T15:46:07Z"
+      },
+      {
+        "sha": "c8f8c06",
+        "message": "Merge branch 'sunsetting-announcement' into install-from-github",
+        "author": "sadick254",
+        "date": "2022-11-09T16:12:36Z"
+      },
+      {
+        "sha": "1d7aeb6",
+        "message": "Allow restoring the sunsetting announcement tab",
+        "author": "Sergio Padrino",
+        "date": "2022-11-09T11:54:28Z"
+      },
+      {
+        "sha": "0df5017",
+        "message": "Don't show sunsetting announcement along with the welcome views, but independently",
+        "author": "Sergio Padrino",
+        "date": "2022-11-09T11:54:12Z"
+      },
+      {
+        "sha": "fea5350",
+        "message": "Fix linting issues",
+        "author": "sadick254",
+        "date": "2022-11-07T18:38:04Z"
+      },
+      {
+        "sha": "99a2892",
+        "message": "Merge branch 'sunsetting-announcement' into install-from-github",
+        "author": "sadick254",
+        "date": "2022-11-07T18:24:49Z"
+      },
+      {
+        "sha": "c9ff20f",
+        "message": "DEBUG",
+        "author": "sadick254",
+        "date": "2022-11-04T13:23:11Z"
+      },
+      {
+        "sha": "d2bd2fc",
+        "message": "WIP",
+        "author": "sadick254",
+        "date": "2022-10-31T07:34:39Z"
+      },
+      {
+        "sha": "842125f",
+        "message": "Change to github refs",
+        "author": "sadick254",
+        "date": "2022-10-27T20:39:09Z"
+      },
+      {
+        "sha": "e522312",
+        "message": "Improve copy",
+        "author": "Sergio Padrino",
+        "date": "2022-09-29T15:45:10Z"
+      },
+      {
+        "sha": "2338a28",
+        "message": "upgrade to window-2019 (#25633)",
+        "author": "Sadick",
+        "date": "2022-09-27T07:07:12Z"
+      },
+      {
+        "sha": "df229dd",
+        "message": "Create new view to announce we're sunsetting Atom",
+        "author": "Sergio Padrino",
+        "date": "2022-09-26T16:41:47Z"
+      },
+      {
+        "sha": "586efc2",
+        "message": "Merge pull request #25622 from DeeDeeG/rpm-spec-recommends-usr-lib-lsb_release",
+        "author": "Musa Ibrahim",
+        "date": "2022-09-13T19:09:24Z"
+      },
+      {
+        "sha": "b448c4b",
+        "message": "Merge pull request #23502 from HarlemSquirrel/patch-1",
+        "author": "Musa Ibrahim",
+        "date": "2022-09-13T17:46:46Z"
+      },
+      {
+        "sha": "8fd6ee4",
+        "message": "Add lsb_release file to \"Recommends:\" of rpm spec",
+        "author": "DeeDeeG",
+        "date": "2022-09-13T17:01:35Z"
+      },
+      {
+        "sha": "4c59002",
+        "message": "Merge pull request #25541 from expeehaa/remove_rpm_lsb_requirement",
+        "author": "Musa Ibrahim",
+        "date": "2022-09-13T09:08:53Z"
+      },
+      {
+        "sha": "16c4b54",
+        "message": "Replace RPM spec requirement \"lsb-core-noarch\" with \"/usr/bin/lsb_release\".",
+        "author": "expeehaa",
+        "date": "2022-06-17T17:59:41Z"
+      },
+      {
+        "sha": "17a31e3",
+        "message": "Merge pull request #25442 from claytonrcarter/fix-usage-message",
+        "author": "Musa Ibrahim",
+        "date": "2022-06-23T09:02:41Z"
+      },
+      {
+        "sha": "ae14722",
+        "message": "Merge pull request #25459 from jesuscb99/master",
+        "author": "Musa Ibrahim",
+        "date": "2022-06-23T09:01:25Z"
+      },
+      {
+        "sha": "38c599e",
+        "message": "Merge pull request #25483 from realpixelcode/master",
+        "author": "Musa Ibrahim",
+        "date": "2022-06-23T08:58:15Z"
+      },
+      {
+        "sha": "cf5e379",
+        "message": "atom sunset",
+        "author": "Musa Ibrahim",
+        "date": "2022-06-08T15:02:25Z"
+      },
+      {
+        "sha": "c9658ad",
+        "message": "update copyright year in licence",
+        "author": "Pixelcode",
+        "date": "2022-05-25T07:03:40Z"
+      }
+    ],
+    "languages": [
+      {
+        "name": "JavaScript",
+        "percent": 88.3
+      },
+      {
+        "name": "Less",
+        "percent": 8.7
+      },
+      {
+        "name": "CoffeeScript",
+        "percent": 2.8
+      },
+      {
+        "name": "Shell",
+        "percent": 0.2
+      }
+    ],
+    "tree": [
+      {
+        "name": ".coffeelintignore",
+        "type": "file"
+      },
+      {
+        "name": ".eslintignore",
+        "type": "file"
+      },
+      {
+        "name": ".eslintrc.json",
+        "type": "file"
+      },
+      {
+        "name": ".gitattributes",
+        "type": "file"
+      },
+      {
+        "name": ".github",
+        "type": "dir"
+      },
+      {
+        "name": ".gitignore",
+        "type": "file"
+      },
+      {
+        "name": ".prettierrc",
+        "type": "file"
+      },
+      {
+        "name": "CHANGELOG.md",
+        "type": "file"
+      },
+      {
+        "name": "CODE_OF_CONDUCT.md",
+        "type": "file"
+      },
+      {
+        "name": "CONTRIBUTING.md",
+        "type": "file"
+      },
+      {
+        "name": "Dockerfile",
+        "type": "file"
+      },
+      {
+        "name": "LICENSE.md",
+        "type": "file"
+      },
+      {
+        "name": "PULL_REQUEST_TEMPLATE.md",
+        "type": "file"
+      },
+      {
+        "name": "README.md",
+        "type": "file"
+      },
+      {
+        "name": "SUPPORT.md",
+        "type": "file"
+      },
+      {
+        "name": "apm",
+        "type": "dir"
+      },
+      {
+        "name": "atom.sh",
+        "type": "file"
+      },
+      {
+        "name": "benchmarks",
+        "type": "dir"
+      },
+      {
+        "name": "coffeelint.json",
+        "type": "file"
+      },
+      {
+        "name": "docs",
+        "type": "dir"
+      },
+      {
+        "name": "dot-atom",
+        "type": "dir"
+      },
+      {
+        "name": "exports",
+        "type": "dir"
+      },
+      {
+        "name": "keymaps",
+        "type": "dir"
+      },
+      {
+        "name": "menus",
+        "type": "dir"
+      },
+      {
+        "name": "package-lock.json",
+        "type": "file"
+      },
+      {
+        "name": "package.json",
+        "type": "file"
+      },
+      {
+        "name": "packages",
+        "type": "dir"
+      },
+      {
+        "name": "resources",
+        "type": "dir"
+      },
+      {
+        "name": "script",
+        "type": "dir"
+      },
+      {
+        "name": "spec",
+        "type": "dir"
+      },
+      {
+        "name": "src",
+        "type": "dir"
+      },
+      {
+        "name": "static",
+        "type": "dir"
+      },
+      {
+        "name": "stylelint.config.js",
+        "type": "file"
+      },
+      {
+        "name": "vendor",
+        "type": "dir"
+      }
+    ],
+    "packageJson": {
+      "name": "atom",
+      "description": "A hackable text editor for the 21st Century.",
+      "dependencies": [
+        "@atom/fuzzy-native",
+        "@atom/nsfw",
+        "@atom/source-map-support",
+        "@atom/watcher",
+        "about",
+        "archive-view",
+        "async",
+        "atom-dark-syntax",
+        "atom-dark-ui",
+        "atom-keymap",
+        "atom-light-syntax",
+        "atom-light-ui",
+        "atom-select-list",
+        "autocomplete-atom-api",
+        "autocomplete-css",
+        "autocomplete-html",
+        "autocomplete-plus",
+        "autocomplete-snippets",
+        "autoflow",
+        "autosave",
+        "babel-core",
+        "background-tips",
+        "base16-tomorrow-dark-theme",
+        "base16-tomorrow-light-theme",
+        "bookmarks",
+        "bracket-matcher",
+        "chai",
+        "chart.js",
+        "clear-cut",
+        "coffee-script",
+        "color",
+        "command-palette",
+        "dalek",
+        "dedent",
+        "deprecation-cop",
+        "dev-live-reload",
+        "devtron",
+        "document-register-element",
+        "electron-notarize",
+        "electron-osx-sign"
+      ],
+      "devDependencies": [],
+      "scripts": [
+        "preinstall",
+        "test"
+      ]
+    },
+    "openIssueTitles": [
+      "Thank you Atom Devs",
+      "Thank you, Atom!",
+      "HELP",
+      "Uncaught Error: dlopen(~/Downloads/Atom.app/Contents/Resources/app.asar.unpacked/node_modules/fs-..."
+    ],
+    "signals": {
+      "ageDays": 5402,
+      "daysSinceLastPush": 1402,
+      "status": "dead",
+      "commitCadence": {
+        "perWeek": 1.2,
+        "sampleSize": 30,
+        "firstCommitDate": "2022-05-25T07:03:40.000Z",
+        "lastCommitDate": "2022-11-22T16:11:57.000Z"
+      },
+      "lastWords": "Merge pull request #25709 from atom/fix-snapshot-result-macos",
+      "hasHomepage": true,
+      "hasLicense": true,
+      "hasTests": true
+    },
+    "notes": [
+      "Commit cadence is measured over the latest 30 commits only."
+    ],
+    "fetchedAt": "2026-11-05T10:57:12.437Z"
+  },
+  "autopsy": {
+    "causeOfDeath": {
+      "headline": "Internal sunsetting by its corporate progenitor in favor of a newer standard.",
+      "explanation": "Despite being the pioneer of the Electron framework and amassing over 60,000 stars, Atom was officially decommissioned by GitHub. The final months of activity were dedicated almost exclusively to preparing users for the end, as seen in commit df229dd: 'Create new view to announce we're sunsetting Atom'."
+    },
+    "timeOfDeath": {
+      "date": "2022-11-22T00:00:00.000Z",
+      "note": "The date of the final merge pull request before the repository was archived on December 15, 2022."
+    },
+    "diagnosis": [
+      {
+        "factor": "outcompeted",
+        "severity": 5,
+        "evidence": "The official sunset announcement (2022-06-08) and the industry-wide shift toward VS Code rendered Atom's maintenance redundant for its parent company."
+      },
+      {
+        "factor": "tech_debt",
+        "severity": 4,
+        "evidence": "The package.json reveals a heavy reliance on coffee-script (2.8%) and older Node patterns that became increasingly difficult to maintain compared to TypeScript-based competitors."
+      },
+      {
+        "factor": "solo_burnout",
+        "severity": 3,
+        "evidence": "While not a single person, the corporate 'solo' owner (GitHub) shifted resources away, leaving the project to drift at 1.2 commits per week before the final shutdown."
+      }
+    ],
+    "worthSaving": [
+      "The Electron framework (which outlived its host)",
+      "The 'hackable' philosophy of CSS-styled UI",
+      "The tree-sitter integration concepts"
+    ],
+    "marketToday": {
+      "verdict": "stronger",
+      "reasoning": "The demand for extensible, web-tech-based editors is higher than ever, though the market is currently dominated by VS Code and new high-performance contenders like Zed."
+    },
+    "revivalScore": 35,
+    "revivalScoreReason": "The core community has already moved to forks like Pulsar, but the original codebase is too tied to legacy dependencies to revive as-is.",
+    "epitaph": "The 21st century arrived, and it brought a different editor.",
+    "lastWords": "Merge pull request #25709 from atom/fix-snapshot-result-macos"
+  },
+  "resurrection": {
+    "honestNote": null,
+    "newPositioning": {
+      "oneLiner": "The CSS-First Editor for Framer and Tailwind Power Users",
+      "targetUser": "Frontend designers who build UIs directly in code",
+      "painPoint": "VS Code is optimized for logic and TypeScript, not for visual styling and layout",
+      "whyNow": "AI coding tools can now generate complex CSS instantly, but we lack a 'visual-first' sandbox."
+    },
+    "mvpCut": {
+      "keep": [
+        "Electron core for deep CSS customization",
+        "Keymap system",
+        "The 'Hackable' UI style"
+      ],
+      "kill": [
+        "CoffeeScript — because it is unmaintainable in 2026",
+        "APM package manager — because npm/esm is the standard",
+        "Multi-language support — because we are narrowing to Web/CSS"
+      ],
+      "build": [
+        "Native Tailwind CSS IntelliSense",
+        "Live Side-by-Side CSS Preview",
+        "AI 'Design-to-Code' panel"
+      ]
+    },
+    "sevenDayPlan": [
+      {
+        "day": 1,
+        "title": "Clean Slate & Tech Debt Kill",
+        "tasks": [
+          "Initialize a new Vite + Electron project with TypeScript",
+          "Strip all legacy CoffeeScript dependencies",
+          "Implement a basic text area with syntax highlighting"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "The Designer's Core",
+        "tasks": [
+          "Port the original 'Atom Dark' and 'Light' themes to modern CSS",
+          "Build the 'Inspector' mode to style the editor's own UI with live CSS",
+          "Deploy a landing page with the new positioning"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Visual-First Architecture",
+        "tasks": [
+          "Build a side-by-side 'Live View' for HTML/CSS files",
+          "Integrate PostCSS for instant style injection",
+          "Verify 60fps performance on a 1000-line CSS file"
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Modern Tooling",
+        "tasks": [
+          "Add native Tailwind CSS autocomplete",
+          "Implement 'Jump to Class' logic for rapid navigation",
+          "Create the 'Style Palette'—a command palette for UI properties"
+        ]
+      },
+      {
+        "day": 5,
+        "title": "AI Integration",
+        "tasks": [
+          "Connect Vercel AI SDK for CSS generation",
+          "Add 'Describe to Style' prompt in the editor footer",
+          "Test AI prompts for regenerating UI components"
+        ]
+      },
+      {
+        "day": 6,
+        "title": "Distribution Setup",
+        "tasks": [
+          "Record a 60-second demo styling a landing page in 3 minutes",
+          "Identify 20 'Design Engineers' on X/Threads for direct outreach",
+          "Draft the launch thread emphasizing the 'CSS-First' approach"
+        ]
+      },
+      {
+        "day": 7,
+        "title": "Launch & Feedback",
+        "tasks": [
+          "Post to Product Hunt and X",
+          "Open a public Discord for first 100 users",
+          "Ship the first 'v0.1' build via a public GitHub Release"
+        ]
+      }
+    ],
+    "landingCopy": {
+      "headline": "Stop fighting your editor. Start styling.",
+      "subheadline": "The spiritual successor to Atom, rebuilt for the modern web designer. Native Tailwind support, live CSS injection, and a UI you can hack in your sleep.",
+      "bullets": [
+        "Visual-first: Side-by-side live preview that never lags.",
+        "Hackable: Every pixel of the editor is styled with CSS—and you have the source.",
+        "AI-Powered: Generate complex layouts and animations with a single prompt."
+      ],
+      "cta": "Download the Beta"
+    },
+    "launchPosts": {
+      "x": "Atom died because it tried to be VS Code. I'm bringing it back as something better: a dedicated editor for people who actually care about CSS and Design. \n\nFast, hackable, and built for the 2026 web. \n\nCheck the demo: [URL] 🎨",
+      "firstUsersWhere": [
+        "r/frontend - Designers who miss the hackability of the original Atom.",
+        "Twitter/X 'Design Engineer' community - The core audience for a CSS-first tool.",
+        "Tailwind CSS Discord - Specifically for the power users needing better tooling."
+      ]
+    },
+    "crowdfundingPitch": {
+      "title": "Atom Redux: The Designer's Code Editor",
+      "story": "I used Atom for years. It was the first editor that felt like it belonged to the web, but it died because it got slow and lost its way to VS Code. I'm bringing back that 'hackable' spirit, but with a narrow focus: being the best possible tool for design engineers. No more bloated plugins for backend languages we don't use. This is a lean, TypeScript-based rebuild that prioritizes CSS performance and visual feedback. I've stripped the legacy CoffeeScript and built a core that handles modern Tailwind and AI-driven design workflows. We aren't trying to be the best editor for everyone—just the best one for people who build the beautiful parts of the internet. This project is a return to the roots of what made Atom special: an editor that looks as good as the code you write in it.",
+      "fundingUse": [
+        "Development of a high-performance Canvas-based renderer",
+        "Native AI design-token mapping features",
+        "Hosting for the community-driven CSS theme marketplace"
+      ],
+      "backerReward": "Founding Member badge in the editor footer and a vote on the 'Feature of the Month' roadmap."
+    },
+    "aiBuildPrompt": "Build a modern, lightweight 'CSS-First' code editor in Electron. Use Vite, React, and TypeScript. The core feature is a split-screen layout: a Monaco Editor instance on the left and a live-updating HTML/CSS preview on the right. The editor must allow 'Meta-Styling'—where the user can open a CSS file that specifically targets the editor's own DOM classes to change its appearance in real-time. Do not include any backend language support; focus entirely on HTML, CSS, and Tailwind CSS. Include a command palette (Cmd+K) that allows users to toggle 'Inspect Mode' to select elements within the editor itself. Use a clean, minimal UI inspired by the original Atom 'One Dark' theme. Done means: the app launches, allows file editing, and reflects CSS changes in the preview pane instantly with no reload."
+  }
+}

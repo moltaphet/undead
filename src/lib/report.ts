@@ -5,6 +5,7 @@ import { runAutopsy } from "./ai/autopsy";
 import { runResurrection } from "./ai/resurrection";
 import { TtlCache } from "./cache";
 import { getDossier } from "./dossier";
+import { exampleSnapshot } from "./example-snapshots";
 import { AppError, toAppError, type ErrorCode } from "./errors";
 import { SlidingWindowLimiter } from "./rate-limit";
 import { singleton } from "./singleton";
@@ -44,6 +45,8 @@ export function parseRefParams(owner: string, repo: string): RepoRef {
  * Only cache misses count against the per-IP limit (10 per 10 minutes).
  */
 export async function getReport(ref: RepoRef, ip: string): Promise<Report> {
+  const example = exampleSnapshot(ref);
+  if (example) return { dossier: example.dossier, autopsy: example.autopsy };
   const dossier = await getDossier(ref);
   const key = `${repoKey(ref)}@${dossier.repo.pushedAt}`;
   const autopsy = await autopsyCache.getOrLoad(key, async () => {
@@ -69,6 +72,8 @@ export const loadReport = cache(async (owner: string, repo: string, ip: string):
 
 /** Resurrection plan, generated on demand and cached 6h. Misses count against 5 per 10 minutes per IP. */
 export async function getResurrection(ref: RepoRef, ip: string): Promise<{ report: Report; resurrection: Resurrection }> {
+  const example = exampleSnapshot(ref);
+  if (example) return { report: { dossier: example.dossier, autopsy: example.autopsy }, resurrection: example.resurrection };
   const report = await getReport(ref, ip);
   const key = `${repoKey(ref)}@${report.dossier.repo.pushedAt}`;
   const resurrection = await resurrectionCache.getOrLoad(key, async () => {

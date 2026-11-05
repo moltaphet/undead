@@ -1,0 +1,672 @@
+{
+  "generatedAt": "2026-11-05T11:00:45.206Z",
+  "provider": "gemini",
+  "model": "gemini-3.5-flash",
+  "dossier": {
+    "repo": {
+      "owner": "angular",
+      "name": "angular.js",
+      "fullName": "angular/angular.js",
+      "description": "AngularJS - HTML enhanced for web apps!",
+      "url": "https://github.com/angular/angular.js",
+      "homepage": "https://angularjs.org",
+      "avatarUrl": "https://avatars.githubusercontent.com/u/139426?v=4",
+      "stars": 58445,
+      "forks": 26915,
+      "watchers": 5,
+      "openIssues": 461,
+      "language": "JavaScript",
+      "topics": [],
+      "license": "MIT",
+      "createdAt": "2010-01-06T00:34:37Z",
+      "pushedAt": "2024-04-12T17:43:16Z",
+      "archived": true,
+      "isFork": false,
+      "defaultBranch": "master"
+    },
+    "readme": {
+      "text": "AngularJS\n=========\n\nAngularJS lets you write client-side web applications as if you had a smarter browser. It lets you\nuse good old HTML (or HAML, Jade/Pug and friends!) as your template language and lets you extend HTML’s\nsyntax to express your application’s components clearly and succinctly. It automatically\nsynchronizes data from your UI (view) with your JavaScript objects (model) through 2-way data\nbinding. To help you structure your application better and make it easy to test, AngularJS teaches\nthe browser how to do dependency injection and inversion of control.\n\nIt also helps with server-side communication, taming async callbacks with promises and deferred objects,\nand it makes client-side navigation and deep linking with hashbang urls or HTML5 pushState a\npiece of cake. Best of all? It makes development fun!\n\n--------------------\n\n**AngularJS support has officially ended as of January 2022.\n[See what ending support means](https://docs.angularjs.org/misc/version-support-status)\nand [read the end of life announcement](https://goo.gle/angularjs-end-of-life).**\n\n**Visit [angular.io](https://angular.io) for the actively supported Angular.**\n\n--------------------\n\n* Web site: https://angularjs.org\n* Tutorial: https://docs.angularjs.org/tutorial\n* API Docs: https://docs.angularjs.org/api\n* Developer Guide: https://docs.angularjs.org/guide\n* Contribution guidelines: [CONTRIBUTING.md](CONTRIBUTING.md)\n* Core Development: [DEVELOPERS.md](DEVELOPERS.md)\n* Dashboard: https://dashboard.angularjs.org\n\nDocumentation\n--------------------\nGo to https://docs.angularjs.org\n\nContribute\n--------------------\n\nWe've set up a separate document for our\n[contribution guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md).\n\nDevelop\n--------------------\n\nWe've set up a separate document for\n[developers](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md).\n\nWhat to use AngularJS for and when to use it\n---------\nAngularJS is the next generation framework where each component is designed to work with every other\ncomponent in an interconnected way like a well-oiled machine. AngularJS is JavaScript MVC made easy\nand done right. (Well it is not really MVC, read on, to understand what this means.)\n\n#### MVC, no, MV* done the right way!\n[MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller), short for\nModel-View-Controller, is a design pattern, i.e. how the code should be organized and how the\ndifferent parts of an application separated for proper readability and debugging. Model is the data\nand the database. View is the user interface and what the user sees. Controller is the main link\nbetween Model and View. These are the three pillars of major programming frameworks present on the\nmarket today. On the other hand AngularJS works on MV*, short for Model-View-_Whatever_. The\n_Whatever_ is AngularJS's way of telling that you may create any kind of linking between the Model\nand the View here.\n\nUnlike other frameworks in any programming language, where MVC, the three separate components, each\none has to be written and then connected by the programmer, AngularJS helps the programmer by asking\nhim/her to just create these and everything else will be taken care of by AngularJS.…",
+      "truncated": true
+    },
+    "commits": [
+      {
+        "sha": "d8f7781",
+        "message": "chore: update post LTS links (#17187)",
+        "author": "Mike Brocchi",
+        "date": "2024-04-12T17:43:13Z"
+      },
+      {
+        "sha": "47bf11e",
+        "message": "docs(changelog): fix wrong date in changelog for 1.8.3",
+        "author": "Jeremy Elbourn",
+        "date": "2022-04-12T15:48:22Z"
+      },
+      {
+        "sha": "b5aa425",
+        "message": "docs(changelog): fix typo in changelog for 1.8.3",
+        "author": "Jeremy Elbourn",
+        "date": "2022-04-11T20:26:36Z"
+      },
+      {
+        "sha": "cf16b24",
+        "message": "docs(changelog): add release notes for 1.8.3",
+        "author": "Jeremy Elbourn",
+        "date": "2022-04-07T16:13:37Z"
+      },
+      {
+        "sha": "757d56e",
+        "message": "docs(*): update end-of-life messages (#17177)",
+        "author": "Jeremy Elbourn",
+        "date": "2022-03-18T19:04:55Z"
+      },
+      {
+        "sha": "f362437",
+        "message": "docs(eol): add EOL options text and link to template header used in every page",
+        "author": "Ed Clement",
+        "date": "2021-12-03T22:16:32Z"
+      },
+      {
+        "sha": "fb04e42",
+        "message": "test(Angular): fix `angularInit()` tests on Safari v15+",
+        "author": "Ed Clement",
+        "date": "2021-12-08T14:36:25Z"
+      },
+      {
+        "sha": "6a52c4f",
+        "message": "test(input): fix tests on Firefox v93+",
+        "author": "Ed Clement",
+        "date": "2021-12-08T14:34:47Z"
+      },
+      {
+        "sha": "ed30c4d",
+        "message": "docs(README.md): add wiki link to MVC",
+        "author": "Gage Guzman",
+        "date": "2021-08-20T20:45:43Z"
+      },
+      {
+        "sha": "4032655",
+        "message": "chore(deps): bump js-yaml from 3.5.5 to 3.14.1",
+        "author": "dependabot[bot]",
+        "date": "2021-06-12T12:28:52Z"
+      },
+      {
+        "sha": "47f8c65",
+        "message": "chore(deps): bump normalize-url from 4.5.0 to 4.5.1",
+        "author": "dependabot[bot]",
+        "date": "2021-06-12T04:28:50Z"
+      },
+      {
+        "sha": "56b0ee3",
+        "message": "chore(e2e): run tests against Chrome 91 on macOS Catalina",
+        "author": "Michael Prentice",
+        "date": "2021-06-08T21:11:11Z"
+      },
+      {
+        "sha": "58cd897",
+        "message": "chore(e2e): run tests against Firefox 85 on macOS Catalina",
+        "author": "Michael Prentice",
+        "date": "2021-06-08T21:09:15Z"
+      },
+      {
+        "sha": "c3769a6",
+        "message": "chore(functions): support NodeJS LTS v14. fix audit issues",
+        "author": "Michael Prentice",
+        "date": "2021-06-05T20:32:16Z"
+      },
+      {
+        "sha": "c140d89",
+        "message": "chore(build): support NodeJS LTS v14. fix audit issues",
+        "author": "Michael Prentice",
+        "date": "2021-06-05T16:42:47Z"
+      },
+      {
+        "sha": "1a5b051",
+        "message": "docs(misc/Version Support Status): update URL for XLTS.dev",
+        "author": "Michael Prentice",
+        "date": "2021-06-01T09:37:58Z"
+      },
+      {
+        "sha": "e29900c",
+        "message": "docs($parse): fix typo in parse.js",
+        "author": "Ikko Ashimine",
+        "date": "2021-04-20T11:09:23Z"
+      },
+      {
+        "sha": "02545a8",
+        "message": "chore(deps): bump y18n from 3.2.1 to 3.2.2",
+        "author": "dependabot[bot]",
+        "date": "2021-03-30T15:25:30Z"
+      },
+      {
+        "sha": "9bff2ce",
+        "message": "docs($parse): fix typo in lval.ngdoc",
+        "author": "Ikko Ashimine",
+        "date": "2021-03-09T02:56:49Z"
+      },
+      {
+        "sha": "d463206",
+        "message": "chore(deps): bump elliptic from 6.5.3 to 6.5.4",
+        "author": "dependabot[bot]",
+        "date": "2021-03-09T02:31:37Z"
+      },
+      {
+        "sha": "ae8e903",
+        "message": "chore(deps): bump bl from 1.2.2 to 1.2.3",
+        "author": "dependabot[bot]",
+        "date": "2021-02-06T09:53:46Z"
+      },
+      {
+        "sha": "89c7794",
+        "message": "chore(deps): bump https-proxy-agent from 2.2.1 to 2.2.4",
+        "author": "dependabot[bot]",
+        "date": "2021-02-06T09:53:44Z"
+      },
+      {
+        "sha": "8a941b8",
+        "message": "chore(deps): bump ini from 1.3.4 to 1.3.7",
+        "author": "dependabot[bot]",
+        "date": "2021-02-06T09:53:51Z"
+      },
+      {
+        "sha": "30a4424",
+        "message": "chore(ci): only run `deploy-code-firebase` on master",
+        "author": "George Kalpakas",
+        "date": "2021-02-06T17:46:27Z"
+      },
+      {
+        "sha": "a6fa1ce",
+        "message": "chore(ci): fix failing `deploy-code` job",
+        "author": "George Kalpakas",
+        "date": "2021-02-06T11:42:28Z"
+      },
+      {
+        "sha": "63d613f",
+        "message": "fix(code.angularjs.org): correctly re-construct paths on Windows in `sendStoredFile()`",
+        "author": "George Kalpakas",
+        "date": "2021-02-05T21:02:15Z"
+      },
+      {
+        "sha": "ed7d506",
+        "message": "chore(build): update Firebase dependencies to latest versions",
+        "author": "George Kalpakas",
+        "date": "2021-02-05T20:58:02Z"
+      },
+      {
+        "sha": "12df4d6",
+        "message": "chore(build): use Node.js v12 for Firebase functions on `{code,docs}-angularjs-org`",
+        "author": "George Kalpakas",
+        "date": "2021-02-05T20:15:28Z"
+      },
+      {
+        "sha": "4267ad6",
+        "message": "chore(ci): use default project from config when deploying to Firebase",
+        "author": "George Kalpakas",
+        "date": "2021-02-05T19:19:02Z"
+      },
+      {
+        "sha": "66ada20",
+        "message": "chore(ci): also deploy `code-angularjs-org` to Firebase",
+        "author": "George Kalpakas",
+        "date": "2021-02-05T19:13:22Z"
+      }
+    ],
+    "languages": [
+      {
+        "name": "JavaScript",
+        "percent": 98.2
+      },
+      {
+        "name": "HTML",
+        "percent": 1.2
+      },
+      {
+        "name": "Shell",
+        "percent": 0.5
+      },
+      {
+        "name": "BitBake",
+        "percent": 0.1
+      },
+      {
+        "name": "CSS",
+        "percent": 0.1
+      }
+    ],
+    "tree": [
+      {
+        "name": ".circleci",
+        "type": "dir"
+      },
+      {
+        "name": ".editorconfig",
+        "type": "file"
+      },
+      {
+        "name": ".eslintignore",
+        "type": "file"
+      },
+      {
+        "name": ".eslintrc-base.json",
+        "type": "file"
+      },
+      {
+        "name": ".eslintrc-browser.json",
+        "type": "file"
+      },
+      {
+        "name": ".eslintrc-node.json",
+        "type": "file"
+      },
+      {
+        "name": ".eslintrc-todo.json",
+        "type": "file"
+      },
+      {
+        "name": ".eslintrc.json",
+        "type": "file"
+      },
+      {
+        "name": ".gitattributes",
+        "type": "file"
+      },
+      {
+        "name": ".github",
+        "type": "dir"
+      },
+      {
+        "name": ".gitignore",
+        "type": "file"
+      },
+      {
+        "name": ".mailmap",
+        "type": "file"
+      },
+      {
+        "name": ".nvmrc",
+        "type": "file"
+      },
+      {
+        "name": "CHANGELOG.md",
+        "type": "file"
+      },
+      {
+        "name": "CODE_OF_CONDUCT.md",
+        "type": "file"
+      },
+      {
+        "name": "CONTRIBUTING.md",
+        "type": "file"
+      },
+      {
+        "name": "DEVELOPERS.md",
+        "type": "file"
+      },
+      {
+        "name": "Gruntfile.js",
+        "type": "file"
+      },
+      {
+        "name": "LICENSE",
+        "type": "file"
+      },
+      {
+        "name": "README.closure.md",
+        "type": "file"
+      },
+      {
+        "name": "README.md",
+        "type": "file"
+      },
+      {
+        "name": "RELEASE.md",
+        "type": "file"
+      },
+      {
+        "name": "SECURITY.md",
+        "type": "file"
+      },
+      {
+        "name": "TRIAGING.md",
+        "type": "file"
+      },
+      {
+        "name": "angularFiles.js",
+        "type": "file"
+      },
+      {
+        "name": "benchmarks",
+        "type": "dir"
+      },
+      {
+        "name": "css",
+        "type": "dir"
+      },
+      {
+        "name": "docs",
+        "type": "dir"
+      },
+      {
+        "name": "i18n",
+        "type": "dir"
+      },
+      {
+        "name": "images",
+        "type": "dir"
+      },
+      {
+        "name": "karma-docs.conf.js",
+        "type": "file"
+      },
+      {
+        "name": "karma-jqlite.conf.js",
+        "type": "file"
+      },
+      {
+        "name": "karma-jquery-2.1.conf.js",
+        "type": "file"
+      },
+      {
+        "name": "karma-jquery-2.2.conf.js",
+        "type": "file"
+      },
+      {
+        "name": "karma-jquery.conf-factory.js",
+        "type": "file"
+      },
+      {
+        "name": "karma-jquery.conf.js",
+        "type": "file"
+      },
+      {
+        "name": "karma-modules-ngAnimate.conf.js",
+        "type": "file"
+      },
+      {
+        "name": "karma-modules-ngMock.conf.js",
+        "type": "file"
+      },
+      {
+        "name": "karma-modules.conf.js",
+        "type": "file"
+      },
+      {
+        "name": "karma-shared.conf.js",
+        "type": "file"
+      },
+      {
+        "name": "lib",
+        "type": "dir"
+      },
+      {
+        "name": "logs",
+        "type": "dir"
+      },
+      {
+        "name": "package.json",
+        "type": "file"
+      },
+      {
+        "name": "protractor-circleci-conf.js",
+        "type": "file"
+      },
+      {
+        "name": "protractor-conf.js",
+        "type": "file"
+      },
+      {
+        "name": "protractor-shared-conf.js",
+        "type": "file"
+      },
+      {
+        "name": "scripts",
+        "type": "dir"
+      },
+      {
+        "name": "src",
+        "type": "dir"
+      },
+      {
+        "name": "test",
+        "type": "dir"
+      },
+      {
+        "name": "vendor",
+        "type": "dir"
+      },
+      {
+        "name": "yarn.lock",
+        "type": "file"
+      }
+    ],
+    "packageJson": {
+      "name": "angular",
+      "description": null,
+      "dependencies": [],
+      "devDependencies": [
+        "angular-benchpress",
+        "benchmark",
+        "bootstrap",
+        "browserstacktunnel-wrapper",
+        "canonical-path",
+        "changez",
+        "changez-angular",
+        "cheerio",
+        "commitizen",
+        "commitplease",
+        "cross-spawn",
+        "cz-conventional-changelog",
+        "dgeni",
+        "dgeni-packages",
+        "eslint-plugin-promise",
+        "event-stream",
+        "firebase-tools",
+        "glob",
+        "google-code-prettify",
+        "grunt",
+        "grunt-bump",
+        "grunt-cli",
+        "grunt-contrib-clean",
+        "grunt-contrib-compress",
+        "grunt-contrib-connect",
+        "grunt-contrib-copy",
+        "grunt-ddescribe-iit",
+        "grunt-eslint",
+        "grunt-merge-conflict",
+        "grunt-shell",
+        "gulp",
+        "gulp-concat",
+        "gulp-eslint",
+        "gulp-foreach",
+        "gulp-rename",
+        "gulp-sourcemaps",
+        "gulp-uglify",
+        "gulp-util",
+        "jasmine-core",
+        "jasmine-node"
+      ],
+      "scripts": [
+        "commit",
+        "test-i18n",
+        "test-i18n-ucd"
+      ]
+    },
+    "openIssueTitles": [
+      "ngChange handler called, on submit, for blank type=\"number\" fields, when they haven't changed",
+      "docs: fix the docs to be CommonMark compliant",
+      "Firefox 86 breaks Defered Bootstrap (window.name empty)",
+      "[IE11]: Checkbox state and ng-model binding not in sync on calling preventDefault inside click handler"
+    ],
+    "signals": {
+      "ageDays": 6147,
+      "daysSinceLastPush": 936,
+      "status": "dead",
+      "commitCadence": {
+        "perWeek": 0.2,
+        "sampleSize": 30,
+        "firstCommitDate": "2021-02-05T19:13:22.000Z",
+        "lastCommitDate": "2024-04-12T17:43:13.000Z"
+      },
+      "lastWords": "chore: update post LTS links (#17187)",
+      "hasHomepage": true,
+      "hasLicense": true,
+      "hasTests": true
+    },
+    "notes": [
+      "Commit cadence is measured over the latest 30 commits only."
+    ],
+    "fetchedAt": "2026-11-05T11:00:11.688Z"
+  },
+  "autopsy": {
+    "causeOfDeath": {
+      "headline": "A web framework giant formally retired after reaching its official end-of-life.",
+      "explanation": "AngularJS did not die from project abandonment or lack of adoption, but via scheduled deprecation by its maintainers. Official support ended in January 2022, steering the web development ecosystem toward the rebuilt Angular platform."
+    },
+    "timeOfDeath": {
+      "date": "2022-04-12T00:00:00.000Z",
+      "note": "Substantive maintenance ended with the 1.8.3 changelog release updates, with subsequent commits limited to link maintenance."
+    },
+    "diagnosis": [
+      {
+        "factor": "platform_shift",
+        "severity": 5,
+        "evidence": "README explicitly states 'AngularJS support has officially ended as of January 2022' and directs users to angular.io for active support."
+      },
+      {
+        "factor": "outcompeted",
+        "severity": 4,
+        "evidence": "Modern web architecture moved away from digest cycles and legacy MV* patterns toward component-based frameworks, leading maintainers to focus on the full rewrite of Angular."
+      }
+    ],
+    "worthSaving": [
+      "Pioneering concepts of declarative HTML templates and client-side dependency injection",
+      "Comprehensive documentation framework and testing methodologies established across karma and protractor configs"
+    ],
+    "marketToday": {
+      "verdict": "gone",
+      "reasoning": "The modern frontend ecosystem has standardized around modern component architectures like React, modern Angular, Vue, and Svelte. The 2010-era digest cycle and implicit two-way data binding have been superseded by explicit unidirectional data flows."
+    },
+    "revivalScore": 0,
+    "revivalScoreReason": "The framework reached its deliberate End of Life and was officially archived by Google in favor of modern Angular.",
+    "epitaph": "It taught the browser HTML extensions, then passed the torch.",
+    "lastWords": "chore: update post LTS links (#17187)"
+  },
+  "resurrection": {
+    "honestNote": "AngularJS reached official End-of-Life in January 2022 and its architecture cannot compete with modern frontend frameworks today. We are pivoting to salvage its core strength—declarative HTML extensions and simple client-side dependency injection—into a lightweight, zero-build micro-library for modern HTML-first web apps.",
+    "newPositioning": {
+      "oneLiner": "Declarative reactive extensions for plain HTML without a build step",
+      "targetUser": "Solo indie hackers building lightweight HTML-first server-rendered web apps",
+      "painPoint": "Modern React and Angular toolchains are overly complex for simple interactive HTML pages",
+      "whyNow": "AI coding tools write clean vanilla JS and micro-libraries run fast without build steps"
+    },
+    "mvpCut": {
+      "keep": [
+        "Declarative HTML template directives (ng-bind, ng-repeat equivalent)",
+        "Lightweight client-side dependency injection container"
+      ],
+      "kill": [
+        "Heavy $digest cycle performance bottlenecks — because modern Proxy objects handle reactivity clean and fast",
+        "Karma and Protractor legacy testing configs — because Vitest and Playwright are modern standards",
+        "Legacy HTTP deferred/promise abstractions — because native async/await and fetch exist",
+        "Complex MV* scope hierarchies — because modern flat state stores scale better"
+      ],
+      "build": [
+        "Single-file ESM distribution under 5KB with zero dependencies",
+        "Native HTML Web Component binding system using DOM Proxies"
+      ]
+    },
+    "sevenDayPlan": [
+      {
+        "day": 1,
+        "title": "Core Engine Modernization",
+        "tasks": [
+          "Create modern ESM project shell with Vite and Vitest",
+          "Implement lightweight Proxy-based reactivity engine in under 200 lines",
+          "Deploy working reactivity test suite to GitHub Actions"
+        ]
+      },
+      {
+        "day": 2,
+        "title": "DOM Directives Engine",
+        "tasks": [
+          "Implement x-bind and x-model DOM attributes using modern MutationObserver",
+          "Build single-file demo showing two-way form input sync without a build step",
+          "Publish working demo page on Vercel"
+        ]
+      },
+      {
+        "day": 3,
+        "title": "Dependency Injection Container",
+        "tasks": [
+          "Extract core DI concept into simple function-based register/inject API",
+          "Connect DI container directly to reactivity state store",
+          "Verify end-to-end user data flow in interactive counter demo"
+        ]
+      },
+      {
+        "day": 4,
+        "title": "Documentation Site",
+        "tasks": [
+          "Build single-page documentation landing site using the engine itself",
+          "Create 3 interactive code sandbox examples (Todo app, API fetcher, live search)",
+          "Ship docs site publicly to production URL"
+        ]
+      },
+      {
+        "day": 5,
+        "title": "Community Outreach",
+        "tasks": [
+          "Directly message 10 Go/HTMX and Laravel builders on X/Twitter showing instant reactive inputs",
+          "Post technical teardown of legacy digest cycle vs DOM Proxies on Dev.to",
+          "Collect initial feedback on syntax ergonomics"
+        ]
+      },
+      {
+        "day": 6,
+        "title": "NPM & CDN Packaging",
+        "tasks": [
+          "Bundle minified script tag CDN distribution file under 5KB",
+          "Publish v1.0.0 package to npm registry",
+          "Verify direct <script src=\"...\"> usage in plain index.html file"
+        ]
+      },
+      {
+        "day": 7,
+        "title": "Public Relaunch",
+        "tasks": [
+          "Publish launch announcement on Product Hunt by 8am PST",
+          "Post relaunch thread on X with live GIF demo",
+          "Post launch writeup to r/webdev detailing the micro-framework pivot"
+        ]
+      }
+    ],
+    "landingCopy": {
+      "headline": "Declarative HTML interactivity. Zero build tools.",
+      "subheadline": "The simplicity of 2010 HTML template directives rebuilt with modern DOM Proxies in under 5KB.",
+      "bullets": [
+        "No webpack, no build step: plug in a script tag and write interactive HTML",
+        "Proxy-powered reactivity replacing heavy digest loops",
+        "Built-in lightweight dependency injection for structured client code"
+      ],
+      "cta": "Get Script Tag"
+    },
+    "launchPosts": {
+      "x": "AngularJS officially died in 2022, but simple reactive HTML templates shouldn't have. I rebuilt its best parts using modern JavaScript DOM Proxies in under 5KB. Zero build step required. ⚡️ #webdev",
+      "firstUsersWhere": [
+        "r/htmx — developers who love server-rendered HTML and light client scripts",
+        "Laravel News Community — backend devs looking for quick client reactivity without Node builds",
+        "Hacker News Ask HN — technical audience interested in framework architecture pivots"
+      ]
+    },
+    "crowdfundingPitch": {
+      "title": "HTML-Inject: Reviving Declarative HTML for the Modern Web",
+      "story": "I spent years watching the web ecosystem evolve, but I never forgot the magic of the early days of AngularJS. It officially died in January 2022, after reaching its scheduled end-of-life. It wasn't abandoned; it was replaced by a more complex successor that required massive build pipelines and a total shift in mental models. While the world moved to modern Angular and React, the original dream of simply extending HTML with data-binding became a relic of the past. The autopsy is clear: the heavy digest cycles and legacy MV* patterns couldn't keep up with modern performance standards. I am salvaging the best parts—the pioneering concepts of declarative HTML templates and dependency injection—and stripping away the bloat. I am rebuilding this as a modern ESM library under 5KB that requires no build step. This is for the builders who want to enhance HTML without being forced into a heavy framework silo. It is an honest revival of a dead giant's soul, optimized for 2026.",
+      "fundingUse": [
+        "Fund comprehensive cross-browser testing infrastructure for the core engine",
+        "Design and host a library of interactive documentation sandboxes",
+        "Maintain a high-performance global CDN for zero-build distribution"
+      ],
+      "backerReward": "Founding Backer recognition in the project README and a vote on the priority of new HTML directives"
+    },
+    "aiBuildPrompt": "Rebuild the core architectural concepts of AngularJS—specifically declarative HTML reactivity and dependency injection—into a tiny, modern micro-library called HTML-Inject. Use ES6 JavaScript DOM Proxies and MutationObserver for reactivity instead of the legacy $digest cycle. The library must be a single-file ESM module under 5KB. It should allow users to add attributes like x-model for two-way form binding and x-bind for dynamic text updates directly in plain HTML without any build step or compilation. The target user is a solo indie hacker building lightweight, server-rendered web apps (like with HTMX or Laravel) who needs light client-side interactivity without a heavy Node.js toolchain. Do not include legacy browser fallbacks, jQuery dependencies, or complex promise abstractions; use native fetch and async/await. Implement a simple registry-based dependency injection container for managing stateful services. Definition of done: provide the core ESM script and an index.html file that demonstrates a working live reactive form, a list renderer using x-repeat, and a service injected via the DI container, all working together in the browser with just a single script tag inclusion."
+  }
+}
