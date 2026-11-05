@@ -128,7 +128,7 @@ src/components/                  feature folders + a small ui kit
 - **Resilient by default.** The main Gemini model gets 45 s per attempt. On a 429, a 5xx or a timeout the request goes to a fallback model, and the main model is skipped for 60 s afterwards (a small circuit breaker). If the client aborted, the fallback is not triggered.
 - **Cache keys that follow the repo.** Autopsies and plans are cached for 6 hours under `repo@pushedAt`, so a new push invalidates them. Caches and rate limits live on `globalThis` singletons, because Next.js builds pages and route handlers as separate bundles and module-level state would not be shared.
 - **No spend by accident.** Links into AI pages use `prefetch={false}`; heavy work calls `await connection()` so it never runs during prerender or prefetch.
-- **Limits.** Autopsies: 10 per IP per 10 minutes. Resurrections: 5 per IP per 10 minutes. Séance: up to 20 messages, 1,000 characters per user message. Request bodies are size-capped.
+- **Limits.** Autopsies: 10 per IP per 10 minutes. Resurrections: 5 per IP per 10 minutes. Séance: 40 messages per IP per 10 minutes, up to 20 messages per conversation, 1,000 characters per user message. Request bodies are size-capped.
 - **No database.** The product is stateless; the only persistence is the visitor's own `localStorage`.
 
 ## What it costs to run
